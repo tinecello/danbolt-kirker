@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /skjema/
+Disallow: /_data/
+Disallow: /_verktoy/
+Disallow: /_mal/
