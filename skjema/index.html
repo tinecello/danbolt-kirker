@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Praktisk informasjon om kirken – skjema | Danbolt</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f3efe6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f3efe6;color:#1d1b17;font-family:'Hanken Grotesk',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#a8432a;text-decoration:none}
+a:hover{color:#7a2e1b}
+h1,h2{font-family:'Newsreader',serif;font-weight:300;margin:0;letter-spacing:-.015em}
+p{margin:0;text-wrap:pretty}
+fieldset{border:0;margin:0;padding:32px 0 0;display:flex;flex-direction:column;gap:20px;border-top:1px solid rgba(29,27,23,.15)}
+legend{font-family:'Newsreader',serif;font-size:30px;font-weight:300;padding:0 0 4px}
+label{display:flex;flex-direction:column;gap:6px;font-weight:600}
+label small{font-weight:400;color:#6d665b;font-size:15px}
+input,textarea,select{font:400 17px 'Hanken Grotesk',sans-serif;color:#1d1b17;background:#fbf9f4;border:0;box-shadow:inset 0 0 0 1px rgba(29,27,23,.22);border-radius:6px;padding:12px 14px}
+input:focus,textarea:focus,select:focus{outline:2px solid #a8432a;outline-offset:1px}
+textarea{min-height:96px;resize:vertical}
+.rad{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px}
+button{font:600 17px 'Hanken Grotesk',sans-serif;background:#a8432a;color:#fff;border:0;border-radius:999px;padding:16px 32px;cursor:pointer;width:fit-content}
+button:hover{background:#7a2e1b}
+</style>
+</head>
+<body>
+<main style="max-width:760px;margin:0 auto;padding:72px 28px 120px;display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#a8432a;font-weight:600">Kirkelydpakken · Danbolt</span>
+    <h1 style="font-size:clamp(42px,6vw,72px);line-height:.98">Praktisk informasjon om kirken</h1>
+    <p id="oppdater" hidden style="font-size:16px;background:#ebe5d9;border-radius:8px;padding:14px 16px">Feltene viser det som står på siden i dag. Endre det som ikke stemmer, og send inn på nytt.</p>
+    <p style="font-size:19px;color:#4a453c">Svarene brukes på kirkens informasjonsside på kirker.danbolt.no. Siden leses av ansatte, frivillige, begravelsesbyråer, kor og konsertarrangører. Skriv kort og konkret. Hopp over det som ikke gjelder dere.</p>
+  </div>
+
+  <form name="kirkeinfo" method="POST" action="/skjema/takk/" data-netlify="true" netlify-honeypot="bot-felt" style="display:flex;flex-direction:column;gap:40px">
+    <input type="hidden" name="form-name" value="kirkeinfo">
+    <input type="hidden" id="slug" name="kirke-id">
+    <p hidden><label>Ikke fyll ut: <input name="bot-felt"></label></p>
+
+    <fieldset>
+      <legend>Om dere</legend>
+      <label>Kirke <input id="kirke" name="kirke" required placeholder="F.eks. Brandval kirke"></label>
+      <div class="rad">
+        <label>Ditt navn <input name="utfylt-av" required autocomplete="name"></label>
+        <label>Din e-post <input name="utfylt-av-epost" type="email" required autocomplete="email"></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Kontaktperson for arrangementer</legend>
+      <p style="color:#6d665b">Vises på siden. Den arrangører skal ringe før og under et arrangement.</p>
+      <div class="rad">
+        <label>Navn eller rolle <input name="kontakt-navn" placeholder="F.eks. Kirketjener / kirkekontoret"></label>
+        <label>Telefon <input name="kontakt-telefon" type="tel"></label>
+      </div>
+      <label>E-post <input name="kontakt-epost" type="email"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Ankomst og adgang</legend>
+      <label>Parkering <small>Hvor kan man parkere, hvor mange plasser, HC-parkering?</small><textarea name="parkering"></textarea></label>
+      <label>Nøkkel og adgang <small>Hvem låser opp, hvor hentes nøkkel, alarm?</small><textarea name="nokkel"></textarea></label>
+      <label>Universell utforming <small>Rullestolinngang, trinnfri adkomst, HC-toalett, reserverte plasser?</small><textarea name="universell-utforming"></textarea></label>
+      <label>Lasting og rigging <small>Hvor kan man kjøre inn utstyr, bæreavstand, trapper, når kan man rigge?</small><textarea name="lasting-rigging"></textarea></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>I kirken</legend>
+      <label>Toalett <small>Hvor er det, og er det åpent under arrangementer?</small><textarea name="toalett"></textarea></label>
+      <label>Garderobe <small>For publikum og for medvirkende</small><textarea name="garderobe"></textarea></label>
+      <label>Kjøkken <small>Finnes det, og kan arrangører bruke det?</small><textarea name="kjokken"></textarea></label>
+      <label>Wi-Fi <small>Nettverk og passord, eller hvem man spør</small><textarea name="wifi"></textarea></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Temperatur og strøm</legend>
+      <label>Oppvarming om vinteren <small>Hvor lang tid tar det å varme opp kirken, hvem skrur på, hvilken temperatur kan man forvente? Viktig for instrumenter og kor.</small><textarea name="oppvarming"></textarea></label>
+      <label>Strøm til eget utstyr <small>Hvor er stikkontaktene, hvor mye kan belastes, finnes det 16A/32A?</small><textarea name="strom"></textarea></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Sikkerhet</legend>
+      <label>Brann og nødutgang <small>Nødutganger, brannslukkere, maks antall personer, hvem er ansvarlig?</small><textarea name="brann"></textarea></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Lys</legend>
+      <label>Lysbrytere <small>Hvor er bryterne, og hva styrer de? Danbolt kan også fylle ut dette.</small><textarea name="lys"></textarea></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Annet</legend>
+      <label>Noe mer arrangører bør vite? <small>Regler, ting som ofte går galt, tips</small><textarea name="annet"></textarea></label>
+    </fieldset>
+
+    <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(29,27,23,.15);padding-top:32px">
+      <p style="color:#6d665b;font-size:15px">Bilder kan sendes til <a href="mailto:thorbjorn@danbolt.no">thorbjorn@danbolt.no</a>. Svarene sendes til Danbolt og brukes bare på kirkens informasjonsside. Se <a href="https://danbolt.no/personvern/">personvern</a>.</p>
+      <button type="submit">Send inn</button>
+    </div>
+  </form>
+</main>
+<script>
+var q=new URLSearchParams(location.search),slug=q.get('kirke');
+var MAP={'Parkering':'parkering','Toalett':'toalett','Nøkkel og adgang':'nokkel','Garderobe':'garderobe','Oppvarming om vinteren':'oppvarming','Strøm til eget utstyr':'strom','Lasting og rigging':'lasting-rigging','Universell utforming':'universell-utforming','Kjøkken':'kjokken','Brann og nødutgang':'brann','Wi-Fi':'wifi'};
+function sett(n,v){var f=document.querySelector('[name="'+n+'"]');if(f&&v)f.value=v;}
+if(slug){document.getElementById('slug').value=slug;
+  fetch('/_data/'+encodeURIComponent(slug)+'.json').then(function(r){return r.ok?r.json():null}).then(function(k){
+    if(!k){sett('kirke',slug);return;}
+    sett('kirke',k.navn);
+    (k.praktisk||[]).forEach(function(p){sett(MAP[p.tema],p.tekst)});
+    var c=k.kontakt||{};sett('kontakt-navn',c.navn);sett('kontakt-telefon',c.telefon);sett('kontakt-epost',c.epost);
+    if(k.lys)sett('lys',k.lys.hvor);
+    if((k.praktisk||[]).some(function(p){return p.tekst}))document.getElementById('oppdater').hidden=false;
+  }).catch(function(){});
+}
+</script>
+</body>
+</html>
