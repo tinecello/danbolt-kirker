@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brandval kirke – lyd, lys og praktisk informasjon | Danbolt</title>
+<meta name="description" content="Brukerveiledning for lydanlegg og lys i Brandval kirke, med praktisk informasjon for ansatte, frivillige og arrangører.">
+<meta name="robots" content="noindex"><!-- Fjern denne linjen når siden er ferdig utfylt -->
+<link rel="canonical" href="https://kirker.danbolt.no/brandval-kirke/">
+<meta name="theme-color" content="#f3efe6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:#f3efe6;color:#1d1b17;font-family:'Hanken Grotesk',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#a8432a;text-decoration:none}
+a:hover{color:#7a2e1b}
+h1,h2,h3{font-family:'Newsreader',serif;font-weight:300;margin:0;letter-spacing:-.015em}
+h2{font-size:clamp(38px,4.4vw,60px);line-height:1}
+h3{font-size:28px;line-height:1.15;font-weight:400}
+p{margin:0;text-wrap:pretty}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+.del{padding:96px 0 0;display:flex;flex-direction:column;gap:56px}
+.del-topp{display:flex;flex-direction:column;gap:14px;max-width:720px}
+.etikett{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#a8432a;font-weight:600}
+.ingress{font-size:19px;color:#4a453c}
+.blokk{display:flex;flex-direction:column;gap:22px}
+.to{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:28px;align-items:start}
+.kort{background:#ebe5d9;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.kort b{font-weight:600;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:14px}
+.tom{color:#8a8274;font-style:italic}
+.bilde{aspect-ratio:4/3;border-radius:6px;border:1.5px dashed #b9b0a0;background:#ebe5d9;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;color:#6d665b;font-size:14px;line-height:1.4}
+.bilde::before{content:"Bilde · ";font-weight:600;margin-right:4px}
+.bilde.bred{aspect-ratio:16/9}
+img.foto{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;display:block}
+.video{aspect-ratio:16/9;border-radius:6px;background:#1d1b17;color:#d9d1c2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:18px;font-size:15px}
+.video::before{content:"";width:0;height:0;border-left:18px solid #e0a27f;border-top:11px solid transparent;border-bottom:11px solid transparent}
+.liste{display:flex;flex-direction:column;border-top:1px solid rgba(29,27,23,.15)}
+.liste>div{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:4px 24px;padding:16px 4px;border-bottom:1px solid rgba(29,27,23,.15)}
+.liste>div>span:first-child{font-weight:600}
+@media (max-width:600px){.liste>div{grid-template-columns:1fr}}
+details{border-bottom:1px solid rgba(29,27,23,.15);padding:16px 4px}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:#a8432a;font-size:22px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#4a453c}
+.punkt{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:start}
+.nr{width:34px;height:34px;border-radius:50%;background:#a8432a;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px}
+.pille{display:inline-flex;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:#e8e1d4;color:#6d665b;width:fit-content}
+nav a{color:#1d1b17;padding:8px 2px;border-bottom:2px solid transparent}
+nav a:hover{color:#a8432a;border-color:#a8432a}
+</style>
+</head>
+<body>
+<header style="position:sticky;top:0;z-index:10;background:rgba(243,239,230,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(29,27,23,.1)">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;padding-top:12px;padding-bottom:12px">
+    <a href="/" style="display:flex;flex-direction:column;color:#1d1b17;line-height:1.1"><span style="font-family:'Newsreader',serif;font-size:22px">Brandval kirke</span><span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6d665b">← Alle kirker</span></a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px 22px;font-size:15px;font-weight:500">
+      <a href="#lyd">Lyd</a><a href="#lys">Lys</a><a href="#praktisk">Praktisk</a><a href="#kontakt">Kontakt</a><a href="#teknisk">Teknisk</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" style="padding-bottom:120px">
+
+  <!-- TOPP -->
+  <section style="padding-top:64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <span class="etikett">Kongsvinger · Korskirke · 330 plasser</span>
+      <h1 style="font-size:clamp(54px,7.5vw,108px);line-height:.92;letter-spacing:-.03em">Brandval kirke</h1>
+      <p class="ingress">Her finner du det du trenger for å bruke lyd og lys i kirken, og praktisk informasjon for deg som skal ha et arrangement her. Siden er for ansatte, frivillige, begravelsesbyråer, kor og konsertarrangører.</p>
+    </div>
+    <div class="bilde bred">Kirkerommet sett fra inngangen mot koret</div>
+  </section>
+
+  <!-- HURTIGSTART -->
+  <section style="margin-top:72px;background:#1d1b17;color:#f3efe6;border-radius:6px;padding:40px 36px;display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px">
+      <h2 style="font-size:clamp(34px,3.6vw,48px)">Kom i gang på 1 minutt</h2>
+      <span style="color:#a39a8b;font-size:15px">Lyden er ferdig innstilt. Du trenger ikke justere noe.</span>
+    </div>
+    <ol style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px">
+      <li style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #3a352d;padding-top:16px"><span style="font-size:13px;letter-spacing:.14em;color:#e0a27f;font-weight:600">01 · VEKK PANELET</span><span>Trykk på skjermen på veggen ved inngangsdøren.</span></li>
+      <li style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #3a352d;padding-top:16px"><span style="font-size:13px;letter-spacing:.14em;color:#e0a27f;font-weight:600">02 · VELG PROGRAM</span><span>Trykk «Gudstjeneste». Bruker dere egen mikser, trykk «Ekstern mikser».</span></li>
+      <li style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #3a352d;padding-top:16px"><span style="font-size:13px;letter-spacing:.14em;color:#e0a27f;font-weight:600">03 · SLÅ PÅ MIKROFONEN</span><span>Skru på den trådløse mikrofonen. Bruk skyveren bare hvis noe er for svakt eller for sterkt.</span></li>
+      <li style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #3a352d;padding-top:16px"><span style="font-size:13px;letter-spacing:.14em;color:#e0a27f;font-weight:600">04 · ETTER BRUK</span><span>Hold «ALL LYD AV» inne i 2 sekunder. Slå av de trådløse mikrofonene og legg dem tilbake i rackskapet foran i koret.</span></li>
+    </ol>
+  </section>
+
+  <!-- LYD -->
+  <section id="lyd" class="del">
+    <div class="del-topp">
+      <span class="etikett">Del 1</span>
+      <h2>Lyd</h2>
+      <p class="ingress">Alt du trenger å vite for å bruke lydanlegget, fra hvor utstyret står til hva du gjør når noe ikke virker.</p>
+    </div>
+
+    <div class="blokk">
+      <h3>Hvor står utstyret?</h3>
+      <div class="to">
+        <svg viewBox="-1 -1 32 38" role="img" aria-label="Plantegning av Brandval kirke med nummererte punkter for utstyr" style="width:100%;max-width:460px;background:#fbf9f4;border-radius:6px;padding:12px;box-sizing:border-box">
+          <g fill="#ebe5d9" stroke="#1d1b17" stroke-width=".15">
+            <rect x="11" y="0" width="8" height="8"></rect><rect x="0" y="8" width="30" height="9"></rect><rect x="9" y="17" width="12" height="19"></rect>
+          </g>
+          <g fill="#6d665b" font-family="Hanken Grotesk,sans-serif" font-size="1.1" letter-spacing=".15" text-anchor="middle">
+            <text x="15" y="4">KOR</text><text x="4.5" y="12.6">SIDEKORS</text><text x="25.5" y="12.6">SIDEKORS</text><text x="15" y="25">SKIP</text>
+          </g>
+          <g fill="#a8432a" font-family="Hanken Grotesk,sans-serif" font-size="1.2" font-weight="600" text-anchor="middle">
+            <circle cx="15" cy="34.6" r="1.2"></circle><circle cx="17.6" cy="2.4" r="1.2"></circle><circle cx="12.6" cy="6.6" r="1.2"></circle><circle cx="9.6" cy="9.6" r="1.2"></circle><circle cx="20.4" cy="9.6" r="1.2"></circle><circle cx="9.6" cy="27" r="1.2"></circle><circle cx="20.4" cy="27" r="1.2"></circle><circle cx="15" cy="31.6" r="1.2"></circle>
+          </g>
+          <g fill="#fff" font-family="Hanken Grotesk,sans-serif" font-size="1.3" font-weight="600" text-anchor="middle">
+            <text x="15" y="35.05">1</text><text x="17.6" y="2.85">2</text><text x="12.6" y="7.05">3</text><text x="9.6" y="10.05">4</text><text x="20.4" y="10.05">4</text><text x="9.6" y="27.45">5</text><text x="20.4" y="27.45">5</text><text x="15" y="32.05">6</text>
+          </g>
+        </svg>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="punkt"><span class="nr">1</span><span><b>Betjeningspanel</b><br>På veggen ved inngangsdøren.</span></div>
+          <div class="punkt"><span class="nr">2</span><span><b>Rackskap</b><br>Foran i koret. Her står de trådløse mikrofonene og tilkoblingen for ekstern mikser.</span></div>
+          <div class="punkt"><span class="nr">3</span><span><b>Lesepult med mikrofon</b><br>Fast montert.</span></div>
+          <div class="punkt"><span class="nr">4</span><span><b>Fronthøyttalere</b><br>Foran, mot sidekorsene og skipet.</span></div>
+          <div class="punkt"><span class="nr">5</span><span><b>Støttehøyttalere</b><br>Bak i kirkerommet, én på hver side.</span></div>
+          <div class="punkt"><span class="nr">6</span><span><b>Galleri og orgel</b><br>Solistmikrofonen ligger hos organisten.</span></div>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="bilde">1 · Betjeningspanelet på veggen, med døren synlig</div>
+        <div class="bilde">2 · Rackskapet foran i koret, døren åpen</div>
+        <div class="bilde">3 · Lesepulten med mikrofon</div>
+        <div class="bilde">4 · Fronthøyttaler</div>
+        <div class="bilde">5 · Støttehøyttaler bak</div>
+        <div class="bilde">6 · Galleriet og orgelet</div>
+      </div>
+    </div>
+
+    <div class="blokk">
+      <h3>Betjeningspanelet</h3>
+      <div class="to">
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <p>Panelet er et 8" berøringspanel på veggen ved inngangsdøren. Du velger et program, og lyden er ferdig innstilt for hele kirkerommet.</p>
+          <div class="liste">
+            <div><span>Gudstjeneste</span><span>Standardprogrammet. Brukes til gudstjenester, begravelser, vielser, dåp og de fleste arrangementer. Alle faste mikrofoner er klare.</span></div>
+            <div><span>Ekstern mikser</span><span>For konserter og arrangementer med egen lydtekniker. Lyden fra en ekstern mikser sendes ut i kirkens høyttalere.</span></div>
+            <div><span>ALL LYD AV</span><span>Hold knappen inne i 2 sekunder.</span></div>
+          </div>
+          <p style="font-weight:600;margin-top:6px">Skyverne på panelet</p>
+          <div class="liste">
+            <div><span>TL 1 / TL 2</span><span>Trådløs hodebøyle 1 og 2</span></div>
+            <div><span>Lesepult</span><span>Svanehalsmikrofonen på lesepulten</span></div>
+            <div><span>Mik 1–5</span><span>Mikrofoninnganger 1–5</span></div>
+            <div><span>Master</span><span>Hovedvolum for hele kirken</span></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="bilde">Nærbilde av panelskjermen med programvalg</div>
+          <div class="bilde">Nærbilde av skjermen med skyverne</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="blokk">
+      <h3>Mikrofoner</h3>
+      <div class="grid">
+        <div class="kort"><div class="bilde">Trådløs hodebøyle</div><b>Trådløs hodebøyle · 2 stk</b><span>For prest, taler eller forsanger. Ligger i rackskapet foran i koret. Skyver TL 1 / TL 2.</span></div>
+        <div class="kort"><div class="bilde">Lesepult­mikrofonen</div><b>Lesepult · 1 stk</b><span>Svanehals, fast montert. Står alltid klar når «Gudstjeneste» er valgt.</span></div>
+        <div class="kort"><div class="bilde">Solistmikrofonen</div><b>Trådløs solistmikrofon · 1 stk</b><span>Ligger hos organisten. Kan brukes overalt i kirkerommet.</span></div>
+        <div class="kort"><div class="bilde">Mikrofonuttak i veggen/gulvet</div><b>Mikrofoninnganger · 5 stk</b><span>For kor, instrumenter og ekstra talere. Plassering: <span class="tom">legges inn</span>.</span></div>
+      </div>
+      <div class="kort" style="background:#e8e1d4">
+        <b>Batteri</b>
+        <span>Hvor ligger ekstra batterier, og hvordan lades de? <span class="tom">Legges inn</span></span>
+      </div>
+    </div>
+
+    <div class="blokk">
+      <h3>Egen lydtekniker og ekstern mikser</h3>
+      <div class="to">
+        <div class="liste">
+          <div><span>Tilkobling</span><span>2 × XLR (venstre/høyre) i rackskapet foran i koret. Koble til, og velg «Ekstern mikser» på panelet.</span></div>
+          <div><span>Mikser på galleriet</span><span>Kirkens egen mikser kan kobles til XLR-punktene i rackskapet ved behov.</span></div>
+          <div><span>Strøm</span><span>Se <a href="#praktisk">Praktisk</a>.</span></div>
+        </div>
+        <div class="bilde">XLR-tilkoblingene i rackskapet, merket V/H</div>
+      </div>
+    </div>
+
+    <div class="blokk">
+      <h3>Teleslynge</h3>
+      <p style="max-width:720px">Teleslyngen er alltid på i hele kirkerommet. Brukere av høreapparat velger T-posisjon. Du trenger ikke gjøre noe.</p>
+    </div>
+
+    <div class="blokk">
+      <h3>Videoer</h3>
+      <div class="grid">
+        <div class="video"><span>Slik slår du på lydanlegget · 1 min</span><span class="pille" style="background:#3a352d;color:#d9d1c2">Kommer</span></div>
+        <div class="video"><span>Trådløs mikrofon: på, av og batteri · 2 min</span><span class="pille" style="background:#3a352d;color:#d9d1c2">Kommer</span></div>
+        <div class="video"><span>Koble til ekstern mikser · 2 min</span><span class="pille" style="background:#3a352d;color:#d9d1c2">Kommer</span></div>
+      </div>
+    </div>
+
+    <div class="blokk">
+      <h3>Når noe ikke virker</h3>
+      <div style="border-top:1px solid rgba(29,27,23,.15)">
+        <details><summary>Mikrofonen gir ingen lyd</summary><p>Sjekk at senderen er slått på og at «Mute» ikke lyser for kanalen på panelet. Bytt batteri hvis lampen på senderen blinker.</p></details>
+        <details><summary>Det hyler eller piper i høyttalerne</summary><p>Senk kanalen litt på panelet, og unngå å gå rett foran høyttalerne med mikrofonen.</p></details>
+        <details><summary>Panelet er svart</summary><p>Trykk på skjermen. Hjelper ikke det: <span class="tom">legges inn</span></p></details>
+        <details><summary>Må vi justere lyden under arrangementet?</summary><p>Nei. Anlegget er innstilt for god taletydelighet i hele kirken. Bruk skyverne bare ved behov.</p></details>
+        <details><summary>Kan vi bruke vår egen mikser?</summary><p>Ja. Koble til de to XLR-punktene i rackskapet foran i koret og velg «Ekstern mikser» på panelet.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- LYS -->
+  <section id="lys" class="del">
+    <div class="del-topp">
+      <span class="etikett">Del 2</span>
+      <h2>Lys</h2>
+      <p class="ingress">Brandval kirke har vanlig lys i kirkerommet som slås av og på med brytere. Kirken har ikke konsertlys.</p>
+    </div>
+    <div class="to">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div class="liste">
+          <div><span>Hvor er bryterne?</span><span class="tom">Legges inn</span></div>
+          <div><span>Hva styrer hver bryter?</span><span class="tom">Legges inn (f.eks. skip, kor, galleri, utelys)</span></div>
+          <div><span>Lys før arrangementet</span><span class="tom">Legges inn: hvilke brytere som skal være på</span></div>
+          <div><span>Etter arrangementet</span><span class="tom">Legges inn: hva som skal slås av, og hva som skal stå på</span></div>
+        </div>
+        <div class="kort">
+          <b>Skal du ha eget lys?</b>
+          <span>Konsertarrangører som tar med eget lys, finner informasjon om strøm og rigging under <a href="#praktisk">Praktisk</a>.</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="bilde">Bryterpanelet for lys, med merking synlig</div>
+        <div class="bilde">Kirkerommet med alt lys på</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAKTISK -->
+  <section id="praktisk" class="del">
+    <div class="del-topp">
+      <span class="etikett">Del 3</span>
+      <h2>Praktisk</h2>
+      <p class="ingress">For deg som skal ha et arrangement i kirken. Informasjonen er levert av Brandval kirke.</p>
+    </div>
+    <!-- Fylles ut fra skjemaet kirken sender inn: kirker.danbolt.no/skjema/ -->
+    <div class="grid">
+      <div class="kort"><b>Parkering</b><span class="tom">Fylles ut av kirken</span></div>
+      <div class="kort"><b>Toalett</b><span class="tom">Fylles ut av kirken</span></div>
+      <div class="kort"><b>Nøkkel og adgang</b><span class="tom">Fylles ut av kirken</span></div>
+      <div class="kort"><b>Garderobe</b><span class="tom">Fylles ut av kirken</span></div>
+      <div class="kort"><b>Oppvarming om vinteren</b><span class="tom">Fylles ut av kirken</span></div>
+      <div class="kort"><b>Strøm til eget utstyr</b><span class="tom">Fylles ut av kirken</span></div>
+      <div class="kort"><b>Lasting og rigging</b><span class="tom">Fylles ut av kirken</span></div>
+      <div class="kort"><b>Universell utforming</b><span class="tom">Fylles ut av kirken</span></div>
+      <div class="kort"><b>Kjøkken</b><span class="tom">Fylles ut av kirken</span></div>
+      <div class="kort"><b>Brann og nødutgang</b><span class="tom">Fylles ut av kirken</span></div>
+      <div class="kort"><b>Wi-Fi</b><span class="tom">Fylles ut av kirken</span></div>
+    </div>
+    <div class="grid">
+      <div class="bilde">Kirken utenfra med inngang og parkering</div>
+      <div class="bilde">Inngang for lasting av utstyr</div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt" class="del">
+    <div class="del-topp">
+      <span class="etikett">Del 4</span>
+      <h2>Kontakt</h2>
+    </div>
+    <div class="to">
+      <div class="kort" style="background:#e8e1d4"><span class="etikett" style="font-size:12px">Brandval kirke</span><b>Kontaktperson for arrangementer</b><span class="tom">Navn, telefon og e-post fylles ut av kirken</span></div>
+      <div class="kort" style="background:#e8e1d4"><span class="etikett" style="font-size:12px">Teknisk support</span><b>Thorbjørn Danbolt</b><a href="tel:+4797721779" style="color:#1d1b17">+47 977 21 779</a><a href="mailto:thorbjorn@danbolt.no">thorbjorn@danbolt.no</a></div>
+    </div>
+  </section>
+
+  <!-- TEKNISK -->
+  <section id="teknisk" class="del">
+    <div class="del-topp">
+      <span class="etikett">For lydteknikere</span>
+      <h2>Teknisk spesifikasjon</h2>
+      <p class="ingress">Lydanlegget er levert som Kirkelydpakken av Danbolt i 2026. Eksisterende høyttalere og forsterker er videreført og optimalisert i ny lydprosessor.</p>
+    </div>
+    <div class="liste">
+      <div><span>Lydprosessor (DSP)</span><span>Xilica Solaro · 8 innganger / 6 utganger</span></div>
+      <div><span>Betjening</span><span>8" berøringspanel · veggmontert ved inngangsdøren</span></div>
+      <div><span>Forsterker</span><span>IHOS – Intelligent Audio · eksisterende, videreført</span></div>
+      <div><span>Høyttalere front</span><span>BOSE søyler · eksisterende, optimalisert i DSP</span></div>
+      <div><span>Høyttalere bak</span><span>Martin Audio · eksisterende, tidsforsinket</span></div>
+      <div><span>Trådløse systemer</span><span>Sennheiser · 2 hodebøyler + 1 solistmikrofon</span></div>
+      <div><span>Teleslyngeforsterker</span><span>Ampetronic C7 · eksisterende, videreført</span></div>
+      <div><span>Ekstern tilkobling</span><span>2 × XLR linjenivå (V/H) · rackskap foran i koret</span></div>
+      <div><span>Mikrofoninnganger</span><span>5 · plassering <span class="tom">legges inn</span></span></div>
+      <div><span>Måling</span><span>STI taletydelighet målt 6 steder i kirkerommet</span></div>
+      <div><span>Signalflyt</span><span>Mikrofoner og ekstern mikser → betjeningspanel → Xilica Solaro → IHOS → BOSE front / Martin Audio bak / teleslynge</span></div>
+      <div><span>Dokumentasjon (PDF)</span><span class="tom">Legges inn</span></div>
+    </div>
+    <div class="bilde bred">Rackskapet innvendig med DSP, forsterker og trådløse mottakere</div>
+  </section>
+
+  <!-- FLERE BILDER OG VIDEOER: legg til flere <div class="bilde"> / <img class="foto"> / <div class="video"> etter behov -->
+  <section class="del">
+    <div class="del-topp"><h3>Flere bilder og videoer</h3></div>
+    <div class="grid">
+      <div class="bilde">Ekstra bilde</div>
+      <div class="bilde">Ekstra bilde</div>
+      <div class="video"><span>Ekstra video</span></div>
+    </div>
+  </section>
+</main>
+
+<footer style="border-top:1px solid rgba(29,27,23,.08)">
+  <div class="wrap" style="padding-top:36px;padding-bottom:36px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;font-size:15px;color:#6d665b">
+    <span>Kirkelydpakken fra <a href="https://danbolt.no/">Danbolt</a></span>
+    <a href="https://danbolt.no/personvern/" style="color:#6d665b;text-decoration:underline">Personvern</a>
+  </div>
+</footer>
+</body>
+</html>
