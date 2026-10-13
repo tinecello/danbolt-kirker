@@ -1,0 +1,542 @@
+{
+  "slug": "brandval-kirke",
+  "navn": "Brandval kirke",
+  "sted": "Kongsvinger",
+  "fakta": "Korskirke · 330 plasser",
+  "ingress": "Her finner du det du trenger for å bruke lyd og lys i kirken, og praktisk informasjon for deg som skal ha et arrangement her.",
+  "hovedbilde": {
+    "src": "",
+    "tekst": "Kirkerommet sett fra inngangen mot koret"
+  },
+  "oppgaver": [
+    {
+      "id": "tale",
+      "tittel": "Gudstjeneste, begravelse, vielse",
+      "undertittel": "Tale og vanlig bruk",
+      "steg": [
+        {
+          "tekst": "Trykk på skjermen i koret, nederst på høyre side.",
+          "bilde": {
+            "src": "",
+            "tekst": "Panelet i koret, nederst på høyre side"
+          }
+        },
+        {
+          "tekst": "Trykk «Gudstjeneste».",
+          "tips": "Dette programmet brukes til nesten alt: gudstjeneste, begravelse, vielse og dåp.",
+          "bilde": {
+            "src": "",
+            "tekst": "Skjermen med «Gudstjeneste»-knappen"
+          }
+        },
+        {
+          "tekst": "Hent en trådløs mikrofon i skapet foran i koret, og skru den på.",
+          "tips": "Lesepultmikrofonen er alltid klar. Den trenger du ikke skru på.",
+          "bilde": {
+            "src": "",
+            "tekst": "Mikrofonskapet åpent, mikrofonene synlige"
+          }
+        },
+        {
+          "tekst": "Snakk som vanlig. Lyden er ferdig innstilt for hele kirken.",
+          "tips": "Er det for svakt eller for sterkt? Juster skyveren for mikrofonen på panelet.",
+          "bilde": {
+            "src": "",
+            "tekst": "Taler med hodebøyle ved alteret"
+          }
+        }
+      ],
+      "etter": "Hold «ALL LYD AV» inne i 2 sekunder. Skru av mikrofonen og legg den tilbake i skapet.",
+      "video": {
+        "tittel": "Slik slår du på lydanlegget",
+        "varighet": "1 min",
+        "src": ""
+      }
+    },
+    {
+      "id": "konsert",
+      "tittel": "Konsert med egen lydtekniker",
+      "undertittel": "Egen mikser og eget utstyr",
+      "steg": [
+        {
+          "tekst": "Koble mikseren til de to kontaktene merket V og H i skapet foran i koret.",
+          "bilde": {
+            "src": "",
+            "tekst": "De to XLR-kontaktene i skapet, merket V/H"
+          }
+        },
+        {
+          "tekst": "Trykk «Ekstern mikser» på panelet i koret.",
+          "tips": "Nå går lyden fra mikseren ut i kirkens høyttalere.",
+          "bilde": {
+            "src": "",
+            "tekst": "Skjermen med «Ekstern mikser»-knappen"
+          }
+        },
+        {
+          "tekst": "Trenger du strøm til utstyret? Se Praktisk lenger ned.",
+          "bilde": {
+            "src": "",
+            "tekst": "Stikkontakter nær koret"
+          }
+        }
+      ],
+      "etter": "Hold «ALL LYD AV» inne i 2 sekunder og koble fra mikseren.",
+      "video": {
+        "tittel": "Koble til ekstern mikser",
+        "varighet": "2 min",
+        "src": ""
+      }
+    },
+    {
+      "id": "kor",
+      "tittel": "Kor og musikere",
+      "undertittel": "Solist, kor og instrumenter",
+      "steg": [
+        {
+          "tekst": "Trykk «Gudstjeneste» på panelet i koret.",
+          "bilde": {
+            "src": "",
+            "tekst": "Skjermen med «Gudstjeneste»-knappen"
+          }
+        },
+        {
+          "tekst": "Solisten bruker den trådløse solistmikrofonen. Den ligger hos organisten.",
+          "bilde": {
+            "src": "",
+            "tekst": "Solistmikrofonen ved orgelet"
+          }
+        },
+        {
+          "tekst": "Kor og instrumenter kobles til mikrofonuttakene «Mik 1–5».",
+          "tips": "Hvor uttakene er, ser du under Finn fram.",
+          "bilde": {
+            "src": "",
+            "tekst": "Mikrofonuttak med nummer synlig"
+          }
+        },
+        {
+          "tekst": "Juster med skyverne «Mik 1–5» på panelet.",
+          "bilde": {
+            "src": "",
+            "tekst": "Skyverne for Mik 1–5 på skjermen"
+          }
+        }
+      ],
+      "etter": "Hold «ALL LYD AV» inne i 2 sekunder. Legg solistmikrofonen tilbake hos organisten.",
+      "video": {
+        "tittel": "Trådløs mikrofon: på, av og batteri",
+        "varighet": "2 min",
+        "src": ""
+      }
+    },
+    {
+      "id": "lys",
+      "tittel": "Bare lys",
+      "undertittel": "Slå lyset av og på",
+      "lenke": "#lys"
+    }
+  ],
+  "panel": {
+    "plassering": "I koret, nederst på høyre side",
+    "ui": {
+      "src": "../bilder/brandval-panel.jpg",
+      "tekst": "Skjermbildet på betjeningspanelet i Brandval kirke"
+    },
+    "bilde": {
+      "src": "",
+      "tekst": "Foto av panelet i koret"
+    },
+    "programmer": [
+      {
+        "navn": "Gudstjeneste",
+        "forklaring": "Brukes til nesten alt: gudstjeneste, begravelse, vielse og dåp."
+      },
+      {
+        "navn": "Ekstern mikser",
+        "forklaring": "Når en lydtekniker har med egen mikser."
+      }
+    ],
+    "skyvere": [
+      {
+        "navn": "TL 1",
+        "forklaring": "Trådløs mikrofon 1 (hodebøyle)"
+      },
+      {
+        "navn": "TL 2",
+        "forklaring": "Trådløs mikrofon 2 (hodebøyle)"
+      },
+      {
+        "navn": "Lesepult",
+        "forklaring": "Mikrofonen på lesepulten"
+      },
+      {
+        "navn": "Mik 1–5",
+        "forklaring": "Mikrofonuttak for kor og instrumenter"
+      }
+    ],
+    "merker": [
+      {
+        "b": "A",
+        "x": 2.6,
+        "y": 5,
+        "tittel": "Velg program",
+        "tekst": "Knappen som lyser grønt, er valgt.",
+        "programmer": true
+      },
+      {
+        "b": "B",
+        "x": 2.6,
+        "y": 46,
+        "tittel": "Skyverne",
+        "tekst": "Én skyver for hver mikrofon. Bruk dem bare hvis noe er for svakt eller for sterkt. Skyv opp for sterkere, ned for svakere.",
+        "skyvere": true
+      },
+      {
+        "b": "C",
+        "x": 2.6,
+        "y": 81.5,
+        "tittel": "Mute",
+        "tekst": "Slår av lyden fra én mikrofon. Trykk en gang til for å slå den på igjen."
+      },
+      {
+        "b": "D",
+        "x": 85.4,
+        "y": 22.4,
+        "tittel": "Master",
+        "tekst": "Volum for hele kirken."
+      },
+      {
+        "b": "E",
+        "x": 33.5,
+        "y": 94,
+        "tittel": "ALL LYD AV",
+        "tekst": "Etter bruk: hold knappen inne i 2 sekunder."
+      }
+    ]
+  },
+  "plan": {
+    "w": 30,
+    "h": 36,
+    "rom": [
+      [
+        11,
+        0,
+        8,
+        8
+      ],
+      [
+        0,
+        8,
+        30,
+        9
+      ],
+      [
+        9,
+        17,
+        12,
+        19
+      ]
+    ],
+    "etiketter": [
+      {
+        "x": 15,
+        "y": 4.4,
+        "t": "KOR"
+      },
+      {
+        "x": 4.5,
+        "y": 12.8,
+        "t": "SIDEKORS"
+      },
+      {
+        "x": 25.5,
+        "y": 12.8,
+        "t": "SIDEKORS"
+      },
+      {
+        "x": 15,
+        "y": 24,
+        "t": "SKIP"
+      }
+    ],
+    "punkter": [
+      {
+        "id": "panel",
+        "kat": "lyd",
+        "navn": "Betjeningspanel",
+        "tekst": "I koret, nederst på høyre side. Her slår du lyden av og på.",
+        "x": 18,
+        "y": 7,
+        "bilde": {
+          "src": "",
+          "tekst": "Panelet i koret"
+        }
+      },
+      {
+        "id": "skap",
+        "kat": "lyd",
+        "navn": "Mikrofonskap",
+        "tekst": "Foran i koret. Her ligger de trådløse mikrofonene, og her kobler lydteknikere til egen mikser.",
+        "x": 17.6,
+        "y": 2.4,
+        "bilde": {
+          "src": "",
+          "tekst": "Skapet foran i koret"
+        }
+      },
+      {
+        "id": "lesepult",
+        "kat": "lyd",
+        "navn": "Lesepult med mikrofon",
+        "tekst": "I koret, nederst på høyre side. Mikrofonen er fast montert og alltid klar.",
+        "x": 16,
+        "y": 6.4,
+        "bilde": {
+          "src": "",
+          "tekst": "Lesepulten"
+        }
+      },
+      {
+        "id": "orgel",
+        "kat": "lyd",
+        "navn": "Galleri og orgel",
+        "tekst": "Solistmikrofonen ligger hos organisten.",
+        "x": 15,
+        "y": 31.4,
+        "bilde": {
+          "src": "",
+          "tekst": "Galleriet og orgelet"
+        }
+      },
+      {
+        "id": "uttak",
+        "kat": "lyd",
+        "navn": "Mikrofonuttak Mik 1–5",
+        "tekst": "I koret, nederst på høyre side. For kor og instrumenter.",
+        "bilde": {
+          "src": "",
+          "tekst": "Mikrofonuttak"
+        },
+        "x": 18,
+        "y": 4.6
+      },
+      {
+        "id": "brytere",
+        "kat": "lys",
+        "navn": "Lysbrytere",
+        "tekst": "",
+        "bilde": {
+          "src": "",
+          "tekst": "Lysbryterne"
+        }
+      },
+      {
+        "id": "inngang",
+        "kat": "praktisk",
+        "navn": "Hovedinngang",
+        "tekst": "Også nødutgang.",
+        "x": 15,
+        "y": 36.6,
+        "bilde": {
+          "src": "",
+          "tekst": "Hovedinngangen utenfra"
+        }
+      },
+      {
+        "id": "toalett",
+        "kat": "praktisk",
+        "navn": "Toalett",
+        "tekst": "",
+        "bilde": {
+          "src": "",
+          "tekst": "Toalettet"
+        }
+      },
+      {
+        "id": "strom",
+        "kat": "praktisk",
+        "navn": "Stikkontakter for utstyr",
+        "tekst": "",
+        "bilde": {
+          "src": "",
+          "tekst": "Stikkontakter"
+        }
+      },
+      {
+        "id": "nodutgang",
+        "kat": "praktisk",
+        "navn": "Andre nødutganger",
+        "tekst": "",
+        "bilde": {
+          "src": "",
+          "tekst": "Nødutgang"
+        }
+      }
+    ]
+  },
+  "lys": {
+    "tekst": "Lyset i kirkerommet slås av og på med vanlige brytere. Det er ingen dimming eller lysprogrammer.",
+    "hvor": "",
+    "bilde": {
+      "src": "",
+      "tekst": "Bryterpanelet med merking synlig"
+    },
+    "brytere": [],
+    "for": "",
+    "etter": "",
+    "konsertlys": null
+  },
+  "praktisk": [
+    {
+      "tema": "Parkering",
+      "tekst": ""
+    },
+    {
+      "tema": "Toalett",
+      "tekst": ""
+    },
+    {
+      "tema": "Nøkkel og adgang",
+      "tekst": ""
+    },
+    {
+      "tema": "Garderobe",
+      "tekst": ""
+    },
+    {
+      "tema": "Oppvarming om vinteren",
+      "tekst": ""
+    },
+    {
+      "tema": "Strøm til eget utstyr",
+      "tekst": ""
+    },
+    {
+      "tema": "Lasting og rigging",
+      "tekst": ""
+    },
+    {
+      "tema": "Universell utforming",
+      "tekst": ""
+    },
+    {
+      "tema": "Kjøkken",
+      "tekst": ""
+    },
+    {
+      "tema": "Brann og nødutgang",
+      "tekst": ""
+    },
+    {
+      "tema": "Wi-Fi",
+      "tekst": ""
+    }
+  ],
+  "kontakt": {
+    "navn": "",
+    "telefon": "",
+    "epost": ""
+  },
+  "hjelp": [
+    {
+      "q": "Mikrofonen gir ingen lyd",
+      "a": "Sjekk at mikrofonen er skrudd på. Se etter om «Mute» lyser for mikrofonen på panelet. Blinker lampen på mikrofonen, må batteriet byttes."
+    },
+    {
+      "q": "Det hyler eller piper",
+      "a": "Skyv mikrofonen litt ned på panelet. Ikke gå rett foran høyttalerne med mikrofonen."
+    },
+    {
+      "q": "Skjermen på panelet er svart",
+      "a": "Trykk på skjermen. Hjelper ikke det, ring teknisk support."
+    },
+    {
+      "q": "Det kommer ingen lyd fra mikseren",
+      "a": "Sjekk at «Ekstern mikser» er valgt på panelet, og at kablene står i kontaktene merket V og H."
+    },
+    {
+      "q": "Må vi justere lyden underveis?",
+      "a": "Nei. Lyden er innstilt for hele kirken. Bruk skyverne bare hvis noe er for svakt eller for sterkt."
+    }
+  ],
+  "teknisk": {
+    "intro": "Lydanlegget er levert som Kirkelydpakken av Danbolt i 2026. Eksisterende høyttalere og forsterker er videreført og optimalisert i ny lydprosessor.",
+    "kjede": [
+      "Mikrofoner / ekstern mikser",
+      "Betjeningspanel",
+      "Xilica Solaro (DSP)",
+      "IHOS forsterker",
+      "BOSE front · Martin Audio bak · Teleslynge"
+    ],
+    "spesifikasjoner": [
+      [
+        "Lydprosessor (DSP)",
+        "Xilica Solaro · 8 inn / 6 ut"
+      ],
+      [
+        "Betjening",
+        "8\" berøringspanel i koret, nederst på høyre side"
+      ],
+      [
+        "Programmer",
+        "Gudstjeneste · Ekstern mikser"
+      ],
+      [
+        "Forsterker",
+        "IHOS – Intelligent Audio · eksisterende"
+      ],
+      [
+        "Høyttalere front",
+        "BOSE søyler · eksisterende, optimalisert i DSP"
+      ],
+      [
+        "Høyttalere bak",
+        "Martin Audio · eksisterende, tidsforsinket"
+      ],
+      [
+        "Trådløst",
+        "Sennheiser · 2 hodebøyler + 1 solistmikrofon"
+      ],
+      [
+        "Teleslynge",
+        "Ampetronic C7 · alltid aktiv"
+      ],
+      [
+        "Ekstern inngang",
+        "2 × XLR linjenivå (V/H) i skap foran i koret"
+      ],
+      [
+        "Mikrofoninnganger",
+        "5 (Mik 1–5)"
+      ],
+      [
+        "Måling",
+        "STI taletydelighet målt 6 steder i kirkerommet"
+      ],
+      [
+        "Dokumentasjon",
+        ""
+      ]
+    ],
+    "bilde": {
+      "src": "",
+      "tekst": "Skapet innvendig med DSP, forsterker og trådløse mottakere"
+    }
+  },
+  "galleri": [
+    {
+      "src": "",
+      "tekst": "Ekstra bilde"
+    },
+    {
+      "src": "",
+      "tekst": "Ekstra bilde"
+    },
+    {
+      "video": true,
+      "tittel": "Ekstra video",
+      "src": ""
+    }
+  ]
+}
