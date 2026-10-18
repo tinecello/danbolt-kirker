@@ -1,68 +1,9 @@
-<!DOCTYPE html>
-<html lang="nb">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kirker med Kirkelydpakken | Danbolt</title>
-<meta name="description" content="Oversikt over kirker med lydanlegg fra Danbolt. Hver kirke har egen side med brukerveiledning og teknisk informasjon.">
-<link rel="canonical" href="https://kirker.danbolt.no/">
-<meta name="theme-color" content="#f3efe6">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#f3efe6;color:#1d1b17;font-family:'Hanken Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
-a{color:#a8432a;text-decoration:none}
-a:hover{color:#7a2e1b}
-input::placeholder{color:#8a8274}
-input[type=search]::-webkit-search-cancel-button{display:none}
-.rad:hover{background:#ebe5d9}
-</style>
-</head>
-<body>
-<header style="border-bottom:1px solid rgba(29,27,23,.08)">
-  <div style="max-width:1100px;margin:0 auto;padding:16px 32px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px">
-    <a href="https://danbolt.no/" style="display:flex;flex-direction:column;color:#1d1b17;line-height:1.1"><span style="font-family:'Newsreader',serif;font-size:24px">Danbolt</span><span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6d665b">Lydteknikk for kirkerom</span></a>
-    <a href="https://danbolt.no/" style="font-size:15px;color:#1d1b17">← danbolt.no</a>
-  </div>
-</header>
-
-<main style="max-width:1100px;margin:0 auto;padding:88px 32px 120px;display:flex;flex-direction:column;gap:48px">
-  <div style="display:flex;flex-direction:column;gap:18px;max-width:720px">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#a8432a">Referanser</span>
-    <h1 style="font-family:'Newsreader',serif;font-weight:300;font-size:clamp(48px,6vw,88px);line-height:.95;letter-spacing:-.03em;margin:0;text-wrap:balance">Kirker med <em style="color:#a8432a">Kirkelydpakken</em></h1>
-    <p style="font-size:19px;line-height:1.6;color:#4a453c;margin:0;text-wrap:pretty">Hver kirke får sin egen side med brukerveiledning for prest, kirketjener, begravelsesbyrå, kor og konsertarrangør.</p>
-  </div>
-
-  <div style="display:flex;flex-direction:column;gap:14px">
-    <label style="display:flex;align-items:center;gap:12px;background:#fbf9f4;border-radius:999px;padding:4px 6px 4px 22px;box-shadow:inset 0 0 0 1px rgba(29,27,23,.18);max-width:520px">
-      <span style="width:12px;height:12px;border-radius:50%;box-shadow:inset 0 0 0 2px #6d665b;flex:none"></span>
-      <input id="sok" type="search" aria-label="Søk etter kirke eller sted" placeholder="Søk etter kirke eller sted" style="flex:1;min-width:0;border:0;outline:0;background:transparent;font:400 17px 'Hanken Grotesk',sans-serif;color:#1d1b17;padding:14px 0">
-    </label>
-    <div style="display:flex;flex-direction:column;border-top:1px solid rgba(29,27,23,.15)">
-      <a class="kirke rad" href="/brandval-kirke/" data-sok="brandval kirke kongsvinger" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:center;padding:22px 8px;border-bottom:1px solid rgba(29,27,23,.15);color:#1d1b17">
-        <span style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Newsreader',serif;font-size:28px;line-height:1.1">Brandval kirke</span><span style="font-size:15px;color:#6d665b">Kongsvinger</span></span>
-        <span style="font-size:22px;color:#a8432a">→</span>
-      </a>
-      <div class="kirke" data-sok="vang kirke" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:center;padding:22px 8px;border-bottom:1px solid rgba(29,27,23,.15)">
-        <span style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Newsreader',serif;font-size:28px;line-height:1.1">Vang kirke</span><span style="font-size:15px;color:#6d665b">Sted legges inn</span></span>
-        <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#6d665b">Side kommer</span>
-      </div>
-      <!-- Når en kirkeside er klar: bytt <div class="kirke"> til <a class="kirke rad" href="/brandval-kirke/" style="...;color:#1d1b17"> og "Side kommer" til en pil → -->
-      <span id="ingen" hidden style="padding:20px 8px;font-size:16px;color:#6d665b">Ingen kirker passer søket.</span>
-    </div>
-  </div>
-</main>
-
-<footer style="border-top:1px solid rgba(29,27,23,.08)">
-  <div style="max-width:1100px;margin:0 auto;padding:40px 32px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;font-size:15px;color:#6d665b">
-    <span>Thorbjørn Danbolt · <a href="tel:+4797721779" style="color:#1d1b17">+47 977 21 779</a> · <a href="mailto:thorbjorn@danbolt.no">thorbjorn@danbolt.no</a></span>
-    <a href="https://danbolt.no/personvern/" style="color:#6d665b;text-decoration:underline">Personvern</a>
-  </div>
-</footer>
-<script>
+<!doctype html><html lang="nb"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kirker med Kirkelydpakken | Danbolt</title><meta name="description" content="Finn kirken og brukerveiledningen for lyd, lys og praktisk informasjon."><link rel="canonical" href="https://kirker.danbolt.no/"><meta name="theme-color" content="#25211f"><link rel="stylesheet" href="/rom.css"></head><body>
+<header><div style="display:flex;align-items:center;justify-content:space-between;gap:24px;margin:auto"><a class="brand" href="https://danbolt.no/"><img src="/danbolt-rom-logo.png" alt="Danbolt"><small>LYDTEKNIKK FOR KIRKEROM</small></a><a href="https://danbolt.no/">Til danbolt.no</a></div></header>
+<main class="portal"><div class="portal-intro"><h1>Finn kirken.<br><em>Finn veiledningen.</em></h1><p>Brukerveiledning for prest, kirketjener, begravelsesbyrå, kor og konsertarrangør. Velg kirke for å finne informasjon om lyd, lys og praktiske forhold.</p></div>
+<label class="church-search"><span>Søk etter kirke eller sted</span><input id="sok" type="search" placeholder="Skriv kirkenavn eller sted" autocomplete="off" aria-controls="kirkene"></label>
+<div id="kirkene" class="church-list"><a class="kirke church-row" href="/brandval-kirke/" data-sok="brandval kirke kongsvinger"><span><strong>Brandval kirke</strong><small>Kongsvinger</small></span><span class="row-action">Åpne veiledningen <span aria-hidden="true">→</span></span></a><div class="kirke church-row pending" data-sok="vang kirke"><span><strong>Vang kirke</strong><small>Sted legges inn</small></span><span class="row-action">Side kommer</span></div><p id="ingen" class="portal-empty" role="status" hidden>Ingen kirker passer søket. Prøv et annet kirkenavn eller sted.</p></div><p class="portal-note">Sidene er under arbeid. Veiledninger og praktisk informasjon fylles ut fortløpende.</p></main>
+<footer><div class="portal-footer"><span>Thorbjørn Danbolt · <a href="tel:+4797721779">+47 977 21 779</a> · <a href="mailto:thorbjorn@danbolt.no">thorbjorn@danbolt.no</a></span><a href="https://danbolt.no/personvern/">Personvern</a></div></footer><script>
 var sok=document.getElementById('sok'),kirker=document.querySelectorAll('.kirke'),ingen=document.getElementById('ingen');
 sok.addEventListener('input',function(){var q=sok.value.trim().toLowerCase(),n=0;kirker.forEach(function(k){var v=!q||k.dataset.sok.indexOf(q)>-1;k.style.display=v?'':'none';if(v)n++;});ingen.hidden=n>0;});
-</script>
-</body>
-</html>
+</script></body></html>

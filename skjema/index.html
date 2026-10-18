@@ -5,35 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Praktisk informasjon om kirken – skjema | Danbolt</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#f3efe6">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#f4f5f3">
+
+
+
 <style>
-body{margin:0;background:#f3efe6;color:#1d1b17;font-family:'Hanken Grotesk',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:#a8432a;text-decoration:none}
+body{margin:0;background:#f4f5f3;color:#1d1b17;font-family:'Manrope',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#61554c;text-decoration:none}
 a:hover{color:#7a2e1b}
-h1,h2{font-family:'Newsreader',serif;font-weight:300;margin:0;letter-spacing:-.015em}
+h1,h2{font-family:'Cormorant Garamond',serif;font-weight:300;margin:0;letter-spacing:-.015em}
 p{margin:0;text-wrap:pretty}
 fieldset{border:0;margin:0;padding:32px 0 0;display:flex;flex-direction:column;gap:20px;border-top:1px solid rgba(29,27,23,.15)}
-legend{font-family:'Newsreader',serif;font-size:30px;font-weight:300;padding:0 0 4px}
+legend{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;padding:0 0 4px}
 label{display:flex;flex-direction:column;gap:6px;font-weight:600}
-label small{font-weight:400;color:#6d665b;font-size:15px}
-input,textarea,select{font:400 17px 'Hanken Grotesk',sans-serif;color:#1d1b17;background:#fbf9f4;border:0;box-shadow:inset 0 0 0 1px rgba(29,27,23,.22);border-radius:6px;padding:12px 14px}
-input:focus,textarea:focus,select:focus{outline:2px solid #a8432a;outline-offset:1px}
+label small{font-weight:400;color:#61554c;font-size:15px}
+input,textarea,select{font:400 17px 'Manrope',sans-serif;color:#1d1b17;background:#fbf9f4;border:0;box-shadow:inset 0 0 0 1px rgba(29,27,23,.22);border-radius:6px;padding:12px 14px}
+input:focus,textarea:focus,select:focus{outline:2px solid #61554c;outline-offset:1px}
 textarea{min-height:96px;resize:vertical}
 .rad{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px}
-button{font:600 17px 'Hanken Grotesk',sans-serif;background:#a8432a;color:#fff;border:0;border-radius:999px;padding:16px 32px;cursor:pointer;width:fit-content}
+button{font:600 17px 'Manrope',sans-serif;background:#61554c;color:#fff;border:0;border-radius:999px;padding:16px 32px;cursor:pointer;width:fit-content}
 button:hover{background:#7a2e1b}
 </style>
+<link rel="stylesheet" href="/rom.css">
 </head>
 <body>
 <main style="max-width:760px;margin:0 auto;padding:72px 28px 120px;display:flex;flex-direction:column;gap:40px">
   <div style="display:flex;flex-direction:column;gap:16px">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#a8432a;font-weight:600">Kirkelydpakken · Danbolt</span>
+    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#61554c;font-weight:600">Kirkelydpakken · Danbolt</span>
     <h1 style="font-size:clamp(42px,6vw,72px);line-height:.98">Praktisk informasjon om kirken</h1>
     <p id="oppdater" hidden style="font-size:16px;background:#ebe5d9;border-radius:8px;padding:14px 16px">Feltene viser det som står på siden i dag. Endre det som ikke stemmer, og send inn på nytt.</p>
-    <p style="font-size:19px;color:#4a453c">Svarene brukes på kirkens informasjonsside på kirker.danbolt.no. Siden leses av ansatte, frivillige, begravelsesbyråer, kor og konsertarrangører. Skriv kort og konkret. Hopp over det som ikke gjelder dere.</p>
+    <p style="font-size:19px;color:#61554c">Svarene brukes på kirkens informasjonsside på kirker.danbolt.no. Siden leses av ansatte, frivillige, begravelsesbyråer, kor og konsertarrangører. Skriv kort og konkret. Hopp over det som ikke gjelder dere.</p>
   </div>
 
   <form name="kirkeinfo" method="POST" action="/skjema/takk/" data-netlify="true" netlify-honeypot="bot-felt" style="display:flex;flex-direction:column;gap:40px">
@@ -52,7 +53,7 @@ button:hover{background:#7a2e1b}
 
     <fieldset>
       <legend>Kontaktperson for arrangementer</legend>
-      <p style="color:#6d665b">Vises på siden. Den arrangører skal ringe før og under et arrangement.</p>
+      <p style="color:#61554c">Vises på siden. Den arrangører skal ringe før og under et arrangement.</p>
       <div class="rad">
         <label>Navn eller rolle <input name="kontakt-navn" placeholder="F.eks. Kirketjener / kirkekontoret"></label>
         <label>Telefon <input name="kontakt-telefon" type="tel"></label>
@@ -98,7 +99,7 @@ button:hover{background:#7a2e1b}
     </fieldset>
 
     <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(29,27,23,.15);padding-top:32px">
-      <p style="color:#6d665b;font-size:15px">Bilder kan sendes til <a href="mailto:thorbjorn@danbolt.no">thorbjorn@danbolt.no</a>. Svarene sendes til Danbolt og brukes bare på kirkens informasjonsside. Se <a href="https://danbolt.no/personvern/">personvern</a>.</p>
+      <p style="color:#61554c;font-size:15px">Bilder kan sendes til <a href="mailto:thorbjorn@danbolt.no">thorbjorn@danbolt.no</a>. Svarene sendes til Danbolt og brukes bare på kirkens informasjonsside. Se <a href="https://danbolt.no/personvern/">personvern</a>.</p>
       <button type="submit">Send inn</button>
     </div>
   </form>

@@ -62,8 +62,8 @@ function lagSide(k) {
       <div class="to">
         <svg viewBox="${-pad} ${-pad} ${pl.w + pad * 2} ${pl.h + pad * 2}" role="img" aria-label="Plantegning av ${e(k.navn)}">
           <g fill="#ebe5d9" stroke="#1d1b17" stroke-width=".15">${pl.rom.map(r => `<rect x="${r[0]}" y="${r[1]}" width="${r[2]}" height="${r[3]}"></rect>`).join('')}</g>
-          <g fill="#8a8274" font-family="Hanken Grotesk,sans-serif" font-size="1.05" letter-spacing=".2" text-anchor="middle">${(pl.etiketter || []).map(t => `<text x="${t.x}" y="${t.y}">${e(t.t)}</text>`).join('')}</g>
-          ${pkt.filter(x => x.x != null).map(x => `<a href="#sted-${e(x.id)}" data-kat="${x.kat}"><circle class="kat-${x.kat}" cx="${x.x}" cy="${x.y}" r="1.35"></circle><text x="${x.x}" y="${x.y + .46}" fill="#fff" font-family="Hanken Grotesk,sans-serif" font-size="1.3" font-weight="600" text-anchor="middle">${x.n}</text></a>`).join('')}
+          <g fill="#8a8274" font-family="Manrope,sans-serif" font-size="1.05" letter-spacing=".2" text-anchor="middle">${(pl.etiketter || []).map(t => `<text x="${t.x}" y="${t.y}">${e(t.t)}</text>`).join('')}</g>
+          ${pkt.filter(x => x.x != null).map(x => `<a href="#sted-${e(x.id)}" data-kat="${x.kat}"><circle class="kat-${x.kat}" cx="${x.x}" cy="${x.y}" r="1.35"></circle><text x="${x.x}" y="${x.y + .46}" fill="#fff" font-family="Manrope,sans-serif" font-size="1.3" font-weight="600" text-anchor="middle">${x.n}</text></a>`).join('')}
         </svg>
         <div class="steder">${pkt.map(x => `
           <div class="sted" id="sted-${e(x.id)}" data-kat="${x.kat}">
@@ -151,15 +151,15 @@ function lagSide(k) {
 ${k.publisert ? '' : '<meta name="robots" content="noindex">'}
 <link rel="canonical" href="https://kirker.danbolt.no/${e(k.slug)}/">
 <meta name="theme-color" content="#f3efe6">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+
 <style>
 html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{margin:0;background:#f3efe6;color:#1d1b17;font-family:'Hanken Grotesk',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;background:#f3efe6;color:#1d1b17;font-family:'Manrope',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:#a8432a;text-decoration:none}
 a:hover{color:#7a2e1b}
-h1,h2,h3{font-family:'Newsreader',serif;font-weight:300;margin:0;letter-spacing:-.015em}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:300;margin:0;letter-spacing:-.015em}
 h2{font-size:clamp(38px,4.4vw,58px);line-height:1}
 h3{font-size:30px;line-height:1.1;font-weight:400}
 p{margin:0;text-wrap:pretty}
@@ -193,7 +193,7 @@ nav a{color:#1d1b17;padding:6px 0;border-bottom:2px solid transparent}
 nav a:hover{color:#a8432a;border-color:#a8432a}
 .oppgaver{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
 .oppg{text-align:left;font:inherit;color:#1d1b17;background:#fbf9f4;border:0;box-shadow:inset 0 0 0 1.5px rgba(29,27,23,.14);border-radius:12px;padding:22px;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;gap:10px;min-height:128px;box-sizing:border-box}
-.oppg b{font-family:'Newsreader',serif;font-size:26px;font-weight:400;line-height:1.1}
+.oppg b{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;line-height:1.1}
 .oppg span{color:#6d665b;font-size:15px}
 .oppg:hover{box-shadow:inset 0 0 0 1.5px #a8432a;color:#1d1b17}
 .oppg[aria-pressed=true]{background:#1d1b17;color:#f3efe6;box-shadow:none}
@@ -229,7 +229,7 @@ nav a:hover{color:#a8432a;border-color:#a8432a}
 .forklar dt{font-weight:600}
 .forklar dd{margin:0;color:#4a453c}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
-.chip{font:500 15px 'Hanken Grotesk',sans-serif;color:#1d1b17;background:transparent;border:0;box-shadow:inset 0 0 0 1px rgba(29,27,23,.25);border-radius:999px;padding:10px 18px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.chip{font:500 15px 'Manrope',sans-serif;color:#1d1b17;background:transparent;border:0;box-shadow:inset 0 0 0 1px rgba(29,27,23,.25);border-radius:999px;padding:10px 18px;cursor:pointer;display:flex;align-items:center;gap:8px}
 .chip i{width:10px;height:10px;border-radius:50%}
 .chip[aria-pressed=true]{background:#1d1b17;color:#f3efe6;box-shadow:none}
 .kart svg{width:100%;max-width:480px;background:#fbf9f4;border-radius:12px;display:block}
@@ -258,7 +258,7 @@ nav a:hover{color:#a8432a;border-color:#a8432a}
 .kkort b{font-size:19px}
 .kkort a{color:#f3efe6}
 .kkort a:hover{color:#e0a27f}
-.kkort .tlf{font-family:'Newsreader',serif;font-size:38px;line-height:1.1}
+.kkort .tlf{font-family:'Cormorant Garamond',serif;font-size:38px;line-height:1.1}
 .kkort .tom{color:#a39a8b}
 .kjede{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .ledd{background:#fbf9f4;box-shadow:inset 0 0 0 1px rgba(29,27,23,.15);border-radius:8px;padding:10px 14px;font-size:15px;font-weight:500}
@@ -266,18 +266,20 @@ nav a:hover{color:#a8432a;border-color:#a8432a}
 .hjelpknapp{position:fixed;right:18px;bottom:18px;z-index:20;background:#a8432a;color:#fff;border-radius:999px;padding:14px 22px;font-weight:600;box-shadow:0 8px 24px rgba(29,27,23,.22)}
 .hjelpknapp:hover{background:#7a2e1b;color:#fff}
 </style>
+<link rel="stylesheet" href="/rom.css">
 </head>
 <body>
 <header style="position:sticky;top:0;z-index:10;background:rgba(243,239,230,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(29,27,23,.1)">
   <div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;padding-top:12px;padding-bottom:12px">
-    <a href="/" style="display:flex;flex-direction:column;color:#1d1b17;line-height:1.1"><span style="font-family:'Newsreader',serif;font-size:22px">${e(k.navn)}</span><span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6d665b">← Alle kirker</span></a>
+    <a href="/" style="display:flex;flex-direction:column;color:#1d1b17;line-height:1.1"><span style="font-family:'Cormorant Garamond',serif;font-size:22px">${e(k.navn)}</span><span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6d665b">← Alle kirker</span></a>
     <nav style="display:flex;flex-wrap:wrap;gap:4px 20px;font-size:15px;font-weight:500">
       <a href="#start">Kom i gang</a>${kartHtml ? '<a href="#kart">Finn fram</a>' : ''}${panelHtml ? '<a href="#panel">Panelet</a>' : ''}${lysHtml ? '<a href="#lys">Lys</a>' : ''}<a href="#praktisk">Praktisk</a><a href="#kontakt">Kontakt</a>${tekHtml ? '<a href="#teknisk">Teknisk</a>' : ''}
     </nav>
   </div>
 </header>
 <main class="wrap" style="padding-bottom:140px">
-  <section style="padding-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:36px;align-items:end">
+  ${k.publisert ? '' : '<p class="draft-notice">Denne veiledningen er under arbeid. Enkelte bilder og opplysninger mangler.</p>'}
+  <section class="church-intro" style="padding-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:36px;align-items:end">
     <div style="display:flex;flex-direction:column;gap:16px">
       <span class="etikett">${e(k.sted)} · ${e(k.fakta)}</span>
       <h1 style="font-size:clamp(54px,7.5vw,104px);line-height:.92;letter-spacing:-.03em">${e(k.navn)}</h1>
