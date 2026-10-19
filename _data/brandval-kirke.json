@@ -39,7 +39,7 @@
         },
         {
           "tekst": "Snakk som vanlig. Lyden er ferdig innstilt for hele kirken.",
-          "tips": "Er det for svakt eller for sterkt? Juster skyveren for mikrofonen på panelet.",
+          "tips": "Er det for svakt eller for sterkt? Juster feideren for mikrofonen på panelet.",
           "bilde": {
             "src": "",
             "tekst": "Taler med hodebøyle ved alteret"
@@ -116,10 +116,10 @@
           }
         },
         {
-          "tekst": "Juster med skyverne «Mik 1–5» på panelet.",
+          "tekst": "Juster med feiderne «Mik 1–5» på panelet.",
           "bilde": {
             "src": "",
-            "tekst": "Skyverne for Mik 1–5 på skjermen"
+            "tekst": "Feiderne for Mik 1–5 på skjermen"
           }
         }
       ],
@@ -188,8 +188,8 @@
         "b": "B",
         "x": 2.6,
         "y": 46,
-        "tittel": "Skyverne",
-        "tekst": "Én skyver for hver mikrofon. Bruk dem bare hvis noe er for svakt eller for sterkt. Skyv opp for sterkere, ned for svakere.",
+        "tittel": "Feiderne",
+        "tekst": "Én feider for hver mikrofon. Bruk dem bare hvis noe er for svakt eller for sterkt. Skyv opp for sterkere, ned for svakere.",
         "skyvere": true
       },
       {
@@ -457,7 +457,7 @@
     },
     {
       "q": "Må vi justere lyden underveis?",
-      "a": "Nei. Lyden er innstilt for hele kirken. Bruk skyverne bare hvis noe er for svakt eller for sterkt."
+      "a": "Nei. Lyden er innstilt for hele kirken. Bruk feiderne bare hvis noe er for svakt eller for sterkt."
     }
   ],
   "teknisk": {
