@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oppdater praktisk informasjon | Danbolt</title>
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#f4f5f3">
+<style>
+body{margin:0;background:#f4f5f3;color:#1d1b17;font-family:'Manrope',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:'Cormorant Garamond',serif;font-weight:300;margin:0;letter-spacing:-.015em}
+p{margin:0;text-wrap:pretty}
+main{max-width:760px;margin:0 auto;padding:56px 24px 140px;display:flex;flex-direction:column;gap:36px}
+.topp{display:flex;flex-direction:column;gap:14px}
+.merk{font-size:14px;font-weight:600;color:#61554c}
+.dempet{color:#61554c}
+form{display:flex;flex-direction:column;gap:36px}
+fieldset{border:0;margin:0;padding:28px 0 0;display:flex;flex-direction:column;gap:20px;border-top:1px solid #d4d3ce;min-width:0}
+legend{font-family:'Cormorant Garamond',serif;font-size:30px;padding:0 0 4px}
+label{display:flex;flex-direction:column;gap:6px;font-weight:600}
+label small{font-weight:400;color:#61554c;font-size:15px}
+input,textarea{font:400 17px 'Manrope',sans-serif;color:#1d1b17;padding:12px 14px;width:100%;box-sizing:border-box}
+textarea{min-height:96px;resize:vertical}
+.rad{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px}
+.linje{position:sticky;bottom:0;background:#f4f5f3;border-top:1px solid #d4d3ce;padding:14px 0;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.linje button{font:600 17px 'Manrope',sans-serif;color:#fff;border:0;padding:14px 30px;cursor:pointer}
+.linje button:disabled{opacity:.5;cursor:default}
+.boks{background:#e7e8e5;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.boks.feil{background:#f3dcd7}
+[hidden]{display:none!important}
+</style>
+<link rel="stylesheet" href="/stil.css">
+</head>
+<body>
+<main>
+  <div class="topp">
+    <span class="merk">Kirkelydpakken · Danbolt</span>
+    <h1 id="tittel">Praktisk informasjon</h1>
+    <p class="dempet" id="intro">Henter …</p>
+  </div>
+
+  <div class="boks feil" id="feil" hidden role="alert"><b id="feiltekst"></b><span>Teknisk support: Thorbjørn Danbolt, <a href="tel:+4797721779">977 21 779</a>, <a href="mailto:thorbjorn@danbolt.no">thorbjorn@danbolt.no</a></span></div>
+
+  <form id="skjema" hidden>
+    <fieldset>
+      <legend>Kontaktperson for arrangementer</legend>
+      <p class="dempet">Vises på siden. Den arrangører skal ringe før og under et arrangement.</p>
+      <div class="rad">
+        <label>Navn eller rolle <input name="k-navn" placeholder="F.eks. kirketjener eller kirkekontoret" maxlength="120"></label>
+        <label>Telefon <input name="k-telefon" type="tel" maxlength="40"></label>
+      </div>
+      <label>E-post <input name="k-epost" type="email" maxlength="120"></label>
+    </fieldset>
+    <div id="grupper" style="display:contents"></div>
+    <div class="linje">
+      <button type="submit" id="lagre">Lagre og publiser</button>
+      <span id="status" role="status" class="dempet"></span>
+    </div>
+  </form>
+</main>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var del = decodeURIComponent(location.hash.slice(1)).split('.');
+  var slug = del[0], nokkel = del[1];
+  var hode = { 'x-kirke': slug, 'x-nokkel': nokkel };
+  var skjema = $('skjema'), felt = [], endret = false;
+
+  function feil(t) { $('intro').hidden = true; skjema.hidden = true; $('feiltekst').textContent = t; $('feil').hidden = false; }
+  function el(navn, attr, tekst) { var e = document.createElement(navn); for (var a in attr) e.setAttribute(a, attr[a]); if (tekst) e.textContent = tekst; return e; }
+
+  if (!slug || !nokkel) return feil('Denne siden åpnes med kirkens egen lenke. Ta kontakt med Danbolt hvis du mangler den.');
+
+  fetch('/api/kirke', { headers: hode }).then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.feil); return j; }); }).then(function (j) {
+    document.title = j.navn + ' – oppdater praktisk informasjon';
+    $('tittel').textContent = j.navn;
+    $('intro').innerHTML = '';
+    $('intro').append('Her oppdaterer dere den praktiske informasjonen på ', el('a', { href: j.side, target: '_blank', rel: 'noopener' }, 'kirkens side'), '. Siden leses av ansatte, frivillige, begravelsesbyråer, kor og konsertarrangører, og den er åpen for alle. Skriv kort og konkret, og la felt stå tomme hvis de ikke gjelder dere. Endringene publiseres med en gang.');
+    felt = j.felt;
+    var grupper = {};
+    felt.forEach(function (f) {
+      var fs = grupper[f.gruppe];
+      if (!fs) { fs = grupper[f.gruppe] = el('fieldset'); fs.append(el('legend', {}, f.gruppe)); $('grupper').append(fs); }
+      var l = el('label', {}, f.tema + ' '), ta = el('textarea', { name: f.id, maxlength: 1500 });
+      ta.value = j.data.felt[f.id] || '';
+      l.append(el('small', {}, f.hjelp), ta); fs.append(l);
+    });
+    skjema['k-navn'].value = j.data.kontakt.navn || '';
+    skjema['k-telefon'].value = j.data.kontakt.telefon || '';
+    skjema['k-epost'].value = j.data.kontakt.epost || '';
+    if (j.data.oppdatert) $('status').textContent = 'Sist lagret ' + j.data.oppdatert.split('-').reverse().join('.') + '.';
+    skjema.hidden = false;
+  }).catch(function (e) { feil(e.message || 'Fikk ikke hentet informasjonen. Prøv igjen om litt.'); });
+
+  skjema.addEventListener('input', function () { endret = true; $('status').textContent = 'Endringer er ikke lagret.'; });
+  window.addEventListener('beforeunload', function (e) { if (endret) e.preventDefault(); });
+
+  skjema.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ut = { felt: {}, kontakt: { navn: skjema['k-navn'].value, telefon: skjema['k-telefon'].value, epost: skjema['k-epost'].value } };
+    felt.forEach(function (f) { ut.felt[f.id] = skjema[f.id].value; });
+    $('lagre').disabled = true; $('status').textContent = 'Lagrer …';
+    fetch('/api/kirke', { method: 'PUT', headers: Object.assign({ 'content-type': 'application/json' }, hode), body: JSON.stringify(ut) })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.feil); return j; }); })
+      .then(function () { endret = false; $('status').textContent = 'Lagret. Endringene vises på kirkens side om omtrent ett minutt.'; })
+      .catch(function (f) { $('status').textContent = (f.message || 'Lagringen feilet.') + ' Ingenting er endret på siden.'; })
+      .then(function () { $('lagre').disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>

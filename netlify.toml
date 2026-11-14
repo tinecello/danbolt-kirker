@@ -1,7 +1,22 @@
+# Netlify bygger alle sidene fra _data/ ved hver endring i GitHub.
 [build]
-  publish = "."
+  command = "node _verktoy/bygg.mjs"
+  publish = "_site"
 
+[functions]
+  directory = "netlify/functions"
+
+# Redigeringssidene skal ikke i søkemotorer, og lenken skal ikke lekke videre.
 [[headers]]
-  for = "/_mal/*"
+  for = "/admin/*"
   [headers.values]
     X-Robots-Tag = "noindex"
+    Referrer-Policy = "no-referrer"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/rediger/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+    Referrer-Policy = "no-referrer"
+    Cache-Control = "no-store"

@@ -1,0 +1,114 @@
+/* Grunnstil for kirkesidene. Lastes før stil.css. */
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:#f3efe6;color:#1d1b17;font-family:'Manrope',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#a8432a;text-decoration:none}
+a:hover{color:#7a2e1b}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:300;margin:0;letter-spacing:-.015em}
+h2{font-size:clamp(38px,4.4vw,58px);line-height:1}
+h3{font-size:30px;line-height:1.1;font-weight:400}
+p{margin:0;text-wrap:pretty}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.del{padding-top:104px;display:flex;flex-direction:column;gap:36px}
+.topp{display:flex;flex-direction:column;gap:12px;max-width:720px}
+.etikett{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#a8432a;font-weight:600}
+.etikett.lys{color:#e0a27f}
+.ingress{font-size:19px;color:#4a453c}
+.blokk{display:flex;flex-direction:column;gap:20px}
+.to{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:32px;align-items:start}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px}
+.kort{background:#ebe5d9;border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.kort b{font-size:18px;font-weight:600}
+.tom{color:#8a8274;font-style:italic}
+.bilde{aspect-ratio:4/3;border-radius:10px;border:1.5px dashed #b9b0a0;background:#ebe5d9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;padding:16px;color:#6d665b;font-size:14px;line-height:1.35;box-sizing:border-box}
+.bilde span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#8a8274}
+.bred{aspect-ratio:16/9}
+.foto{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block}
+.foto.bred{aspect-ratio:16/9}
+.video,.vid{width:100%;aspect-ratio:16/9;border-radius:10px;background:#1d1b17;display:block}
+.video{color:#d9d1c2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:18px;font-size:15px;box-sizing:border-box}
+.play{width:0;height:0;border-left:20px solid #e0a27f;border-top:12px solid transparent;border-bottom:12px solid transparent}
+.pille{font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:#e8e1d4;color:#6d665b}
+.pille.mork{background:#3a352d;color:#d9d1c2}
+.liste{display:flex;flex-direction:column;border-top:1px solid rgba(29,27,23,.15)}
+.liste>div{display:grid;grid-template-columns:minmax(0,210px) minmax(0,1fr);gap:4px 24px;padding:14px 4px;border-bottom:1px solid rgba(29,27,23,.15)}
+.liste>div>span:first-child{font-weight:600}
+@media (max-width:600px){.liste>div{grid-template-columns:1fr}}
+nav a{color:#1d1b17;padding:6px 0;border-bottom:2px solid transparent}
+nav a:hover{color:#a8432a;border-color:#a8432a}
+.oppgaver{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.oppg{text-align:left;font:inherit;color:#1d1b17;background:#fbf9f4;border:0;box-shadow:inset 0 0 0 1.5px rgba(29,27,23,.14);border-radius:12px;padding:22px;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;gap:10px;min-height:128px;box-sizing:border-box}
+.oppg b{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;line-height:1.1}
+.oppg span{color:#6d665b;font-size:15px}
+.oppg:hover{box-shadow:inset 0 0 0 1.5px #a8432a;color:#1d1b17}
+.oppg[aria-pressed=true]{background:#1d1b17;color:#f3efe6;box-shadow:none}
+.oppg[aria-pressed=true] span{color:#bdb4a5}
+.oppgpanel{display:flex;flex-direction:column;gap:28px;background:#fbf9f4;border-radius:14px;padding:28px}
+.oppgpanel[data-skjul]{display:none}
+.steg{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:22px}
+.steg li{display:flex;flex-direction:column;gap:12px}
+.stegnr i{font-style:normal;width:38px;height:38px;border-radius:50%;background:#a8432a;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:17px}
+.steg p{font-size:18px;line-height:1.5}
+.steg .tips{font-size:15px;color:#4a453c;background:#ebe5d9;border-radius:8px;padding:10px 12px}
+.etter-rad{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:22px;align-items:center;border-top:1px solid rgba(29,27,23,.12);padding-top:24px}
+.etter{display:flex;flex-direction:column;gap:8px;font-size:18px}
+.panel{background:#1d1b17;border-radius:22px;padding:22px;box-shadow:0 0 0 10px #3a352d;display:flex;flex-direction:column;gap:18px;color:#f3efe6;margin:10px}
+.prad{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:center}
+.prad em,.forklar em{font-style:normal;width:28px;height:28px;border-radius:50%;background:#e0a27f;color:#1d1b17;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;flex:none}
+.pknapper{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+.pk{border-radius:8px;padding:14px 10px;background:#2f2a24;font-size:14px;font-weight:600;text-align:center}
+.pk.valgt{background:#f3efe6;color:#1d1b17}
+.fadere{display:flex;justify-content:space-between;gap:6px;background:#26221d;border-radius:10px;padding:14px 8px}
+.fader{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;color:#bdb4a5;text-align:center;flex:1}
+.spor{width:6px;height:96px;background:#3a352d;border-radius:3px;position:relative}
+.knott{position:absolute;left:50%;transform:translateX(-50%);width:24px;height:12px;background:#d9d1c2;border-radius:3px}
+.avk{background:#b3261e;color:#fff;border-radius:8px;padding:14px;text-align:center;font-weight:600;font-size:14px;letter-spacing:.06em}
+.ui{position:relative;margin:0;border-radius:14px;overflow:hidden;background:#111;box-shadow:0 0 0 10px #2a2621;margin:10px}
+.ui img{width:100%;display:block}
+.merke{position:absolute;transform:translate(-50%,-50%);width:clamp(26px,3.4vw,40px);height:clamp(26px,3.4vw,40px);border-radius:50%;background:#e0a27f;color:#1d1b17;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:clamp(13px,1.6vw,19px);box-shadow:0 0 0 3px #1d1b17}
+.forklar{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:26px 36px}
+.forklar>div{display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px}
+.forklar b{font-size:19px;display:block;margin-bottom:4px}
+.forklar p{color:#4a453c}
+.forklar dl{margin:8px 0 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;font-size:16px}
+.forklar dt{font-weight:600}
+.forklar dd{margin:0;color:#4a453c}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chip{font:500 15px 'Manrope',sans-serif;color:#1d1b17;background:transparent;border:0;box-shadow:inset 0 0 0 1px rgba(29,27,23,.25);border-radius:999px;padding:10px 18px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.chip i{width:10px;height:10px;border-radius:50%}
+.chip[aria-pressed=true]{background:#1d1b17;color:#f3efe6;box-shadow:none}
+.kart svg{width:100%;max-width:480px;background:#fbf9f4;border-radius:12px;display:block}
+.kat-lyd{background:#a8432a;fill:#a8432a}.kat-lys{background:#8f6512;fill:#8f6512}.kat-praktisk{background:#3f6b5a;fill:#3f6b5a}
+.kart[data-filter=lyd] [data-kat]:not([data-kat=lyd]),.kart[data-filter=lys] [data-kat]:not([data-kat=lys]),.kart[data-filter=praktisk] [data-kat]:not([data-kat=praktisk]){display:none}
+.steder{display:flex;flex-direction:column;gap:6px}
+.sted{display:grid;grid-template-columns:32px minmax(0,1fr) 120px;gap:14px;align-items:start;padding:12px;border-radius:10px}
+.sted:target{background:#ebe5d9}
+.sted b{font-size:17px}
+.sted p{font-size:15px;color:#4a453c}
+.sted .ikkeplassert{font-size:13px;color:#8a8274}
+.bilde.liten{padding:8px;font-size:12px;border-radius:8px}
+.bilde.liten span{font-size:9px}
+.prikk{width:30px;height:30px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px}
+@media (max-width:520px){.sted{grid-template-columns:32px minmax(0,1fr)}.sted .bilde,.sted .foto{grid-column:2}}
+.fra-kirken{font-size:15px;color:#6d665b}
+.hjelp{background:#1d1b17;color:#f3efe6;border-radius:16px;padding:44px 36px;display:flex;flex-direction:column;gap:32px}
+.hjelp details{border-bottom:1px solid #3a352d;padding:16px 2px}
+.hjelp summary{cursor:pointer;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.hjelp summary::-webkit-details-marker{display:none}
+.hjelp summary::after{content:"+";color:#e0a27f;font-size:24px;line-height:1}
+.hjelp details[open] summary::after{content:"–"}
+.hjelp details p{margin-top:10px;color:#d9d1c2}
+.kontakter{display:flex;flex-direction:column;gap:12px}
+.kkort{background:#2a2621;border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:6px}
+.kkort b{font-size:19px}
+.kkort a{color:#f3efe6}
+.kkort a:hover{color:#e0a27f}
+.kkort .tlf{font-family:'Cormorant Garamond',serif;font-size:38px;line-height:1.1}
+.kkort .tom{color:#a39a8b}
+.kjede{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ledd{background:#fbf9f4;box-shadow:inset 0 0 0 1px rgba(29,27,23,.15);border-radius:8px;padding:10px 14px;font-size:15px;font-weight:500}
+.pil{color:#a8432a}
+.hjelpknapp{position:fixed;right:18px;bottom:18px;z-index:20;background:#a8432a;color:#fff;border-radius:999px;padding:14px 22px;font-weight:600;box-shadow:0 8px 24px rgba(29,27,23,.22)}
+.hjelpknapp:hover{background:#7a2e1b;color:#fff}
+.snarvei{font-size:15px;order:3}
+.snarvei a{text-decoration:underline;text-underline-offset:.25em}
+iframe.vid{border:0}
