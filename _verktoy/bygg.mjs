@@ -43,7 +43,7 @@ writeFileSync(join(ut, 'index.html'), `<!doctype html><html lang="nb"><head><met
 <main class="portal"><div class="portal-intro"><h1>Finn kirken.<br><em>Finn veiledningen.</em></h1><p>Brukerveiledning for prest, kirketjener, begravelsesbyrå, kor og konsertarrangør. Velg kirke for å finne informasjon om lyd, lys og praktiske forhold.</p></div>
 <label class="church-search"><span>Søk etter kirke eller sted</span><input id="sok" type="search" placeholder="Skriv kirkenavn eller sted" autocomplete="off" aria-controls="kirkene"></label>
 <div id="kirkene" class="church-list">${rader}<p id="ingen" class="portal-empty" role="status" hidden>Ingen kirker passer søket. Prøv et annet kirkenavn eller sted.</p></div>${underArbeid ? '<p class="portal-note">Sidene er under arbeid. Veiledninger og praktisk informasjon fylles ut fortløpende.</p>' : ''}</main>
-<footer><div class="portal-footer"><span>Thorbjørn Danbolt · <a href="tel:+4797721779">+47 977 21 779</a> · <a href="mailto:thorbjorn@danbolt.no">thorbjorn@danbolt.no</a></span><a href="https://danbolt.no/personvern/">Personvern</a></div></footer><script>
+<footer><div class="portal-footer"><span>Kirkelydpakken fra <a href="https://danbolt.no/">Danbolt</a></span><a href="https://danbolt.no/personvern/">Personvern</a></div></footer><script>
 var sok=document.getElementById('sok'),kirker=document.querySelectorAll('.kirke'),ingen=document.getElementById('ingen');
 sok.addEventListener('input',function(){var q=sok.value.trim().toLowerCase(),n=0;kirker.forEach(function(k){var v=!q||k.dataset.sok.indexOf(q)>-1;k.style.display=v?'':'none';if(v)n++;});ingen.hidden=n>0;});
 </script></body></html>

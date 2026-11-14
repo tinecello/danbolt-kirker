@@ -60,7 +60,7 @@
       "steg": [
         {
           "tekst": "Koble mikseren til kirkens anlegg.",
-          "tips": "Ta kontakt med teknisk support før arrangementet for å avtale tilkobling.",
+          "tips": "Ta kontakt med kirkens kontaktperson før arrangementet for å avtale tilkobling.",
           "bilde": {
             "src": "",
             "tekst": "Tilkobling for ekstern mikser"
@@ -385,7 +385,7 @@
     },
     {
       "q": "Skjermen på styringspanelet er svart",
-      "a": "Trykk på skjermen. Hjelper ikke det, ring teknisk support."
+      "a": "Trykk på skjermen. Er den fortsatt svart, sjekk at nettverkskabelen sitter godt i styringspanelet, og at strømmen til hele lydanlegget er slått på. Hjelper ikke det, kontakt kirkens kontaktperson."
     },
     {
       "q": "Det kommer ingen lyd fra mikseren",

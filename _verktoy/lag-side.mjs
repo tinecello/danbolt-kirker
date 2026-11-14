@@ -138,7 +138,6 @@ export function lagSide(k, pr = {}) {
         <div>${(k.hjelp || []).map(x => `<details><summary>${e(x.q)}</summary><p>${e(x.a)}</p></details>`).join('')}</div>
         <div class="kontakter" id="kontakt">
           ${kt.navn || kt.telefon || kt.epost || !pub ? `<div class="kkort"><span class="etikett lys">Kirkens kontaktperson</span><b>${v(kt.navn, 'Fylles ut av kirken')}</b>${kt.telefon ? `<a href="tel:${e(kt.telefon.replace(/\s/g, ''))}">${e(kt.telefon)}</a>` : ''}${kt.epost ? `<a href="mailto:${e(kt.epost)}">${e(kt.epost)}</a>` : ''}</div>` : ''}
-          <div class="kkort"><span class="etikett lys">Teknisk support</span><b>Thorbjørn Danbolt</b><a class="tlf" href="tel:+4797721779">977 21 779</a><a href="mailto:thorbjorn@danbolt.no">thorbjorn@danbolt.no</a></div>
         </div>
       </div>
     </div>
