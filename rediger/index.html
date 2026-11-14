@@ -53,10 +53,6 @@ textarea{min-height:96px;resize:vertical}
       <label>E-post <input name="k-epost" type="email" maxlength="120"></label>
     </fieldset>
     <div id="grupper" style="display:contents"></div>
-    <fieldset>
-      <legend>Hvem oppdaterer?</legend>
-      <label>Ditt navn <small>Vises ikke på siden. Brukes bare hvis Danbolt trenger å spørre om noe.</small><input name="av" autocomplete="name" maxlength="120"></label>
-    </fieldset>
     <div class="linje">
       <button type="submit" id="lagre">Lagre og publiser</button>
       <span id="status" role="status" class="dempet"></span>
@@ -93,7 +89,6 @@ textarea{min-height:96px;resize:vertical}
     skjema['k-navn'].value = j.data.kontakt.navn || '';
     skjema['k-telefon'].value = j.data.kontakt.telefon || '';
     skjema['k-epost'].value = j.data.kontakt.epost || '';
-    skjema.av.value = j.data.oppdatertAv || '';
     if (j.data.oppdatert) $('status').textContent = 'Sist lagret ' + j.data.oppdatert.split('-').reverse().join('.') + '.';
     skjema.hidden = false;
   }).catch(function (e) { feil(e.message || 'Fikk ikke hentet informasjonen. Prøv igjen om litt.'); });
@@ -103,7 +98,7 @@ textarea{min-height:96px;resize:vertical}
 
   skjema.addEventListener('submit', function (e) {
     e.preventDefault();
-    var ut = { felt: {}, kontakt: { navn: skjema['k-navn'].value, telefon: skjema['k-telefon'].value, epost: skjema['k-epost'].value }, oppdatertAv: skjema.av.value };
+    var ut = { felt: {}, kontakt: { navn: skjema['k-navn'].value, telefon: skjema['k-telefon'].value, epost: skjema['k-epost'].value } };
     felt.forEach(function (f) { ut.felt[f.id] = skjema[f.id].value; });
     $('lagre').disabled = true; $('status').textContent = 'Lagrer …';
     fetch('/api/kirke', { method: 'PUT', headers: Object.assign({ 'content-type': 'application/json' }, hode), body: JSON.stringify(ut) })

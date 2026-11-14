@@ -20,7 +20,6 @@ export const TOM_PRAKTISK = () => ({
   felt: Object.fromEntries(FELT.map(f => [f.id, ''])),
   kontakt: { navn: '', telefon: '', epost: '' },
   oppdatert: '',
-  oppdatertAv: '',
 });
 
 export const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

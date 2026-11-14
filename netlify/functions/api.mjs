@@ -80,6 +80,7 @@ async function kirke(req) {
   const sti = `_data/${slug}.praktisk.json`;
   const fil = await lesJson(sti);
   const naa = { ...TOM_PRAKTISK(), ...(fil ? fil.data : {}) };
+  delete naa.oppdatertAv;
 
   if (req.method === 'GET') {
     return svar({ navn: tek.data.navn, sted: tek.data.sted || '', side: `/${slug}/`, felt: FELT, data: naa });
@@ -93,7 +94,6 @@ async function kirke(req) {
       telefon: tekst(inn.kontakt?.telefon, 40),
       epost: tekst(inn.kontakt?.epost, 120),
     };
-    ny.oppdatertAv = tekst(inn.oppdatertAv, 120);
     ny.oppdatert = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Oslo' });
     await skrivJson(sti, ny, `${tek.data.navn}: praktisk informasjon oppdatert av kirken`, fil?.sha);
     return svar({ ok: true, oppdatert: ny.oppdatert });
