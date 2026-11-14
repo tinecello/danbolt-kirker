@@ -83,7 +83,7 @@ export function lagSide(k, pr = {}) {
             ? `<image href="${e(pl.bilde.src)}" x="0" y="0" width="${pl.w}" height="${pl.h}" preserveAspectRatio="none"></image>`
             : `<g fill="#ebe5d9" stroke="#1d1b17" stroke-width="${r2(.15 * s)}">${(pl.rom || []).map(r => `<rect x="${r[0]}" y="${r[1]}" width="${r[2]}" height="${r[3]}"></rect>`).join('')}</g>
           <g fill="#8a8274" font-family="Manrope,sans-serif" font-size="${r2(1.05 * s)}" letter-spacing="${r2(.2 * s)}" text-anchor="middle">${(pl.etiketter || []).map(t => `<text x="${t.x}" y="${t.y}">${e(t.t)}</text>`).join('')}</g>`}
-          ${pkt.filter(x => x.x != null).map(x => `<a href="#sted-${e(x.id)}" data-kat="${x.kat}"><circle class="kat-${x.kat}" cx="${x.x}" cy="${x.y}" r="${r2(1.35 * s)}"${pl.bilde && pl.bilde.src ? ` stroke="#fff" stroke-width="${r2(.18 * s)}"` : ''}></circle><text x="${x.x}" y="${r2(x.y + .46 * s)}" fill="#fff" font-family="Manrope,sans-serif" font-size="${r2(1.3 * s)}" font-weight="600" text-anchor="middle">${x.n}</text></a>`).join('')}
+          ${pkt.filter(x => x.x != null).map(x => `<a href="#sted-${e(x.id)}" data-kat="${x.kat}"><circle class="kat-${x.kat}" cx="${x.x}" cy="${x.y}" r="${r2((pl.bilde && pl.bilde.src ? 1 : 1.35) * s)}"${pl.bilde && pl.bilde.src ? ` stroke="#fff" stroke-width="${r2(.14 * s)}"` : ''}></circle><text x="${x.x}" y="${r2(x.y + (pl.bilde && pl.bilde.src ? .36 : .46) * s)}" fill="#fff" font-family="Manrope,sans-serif" font-size="${r2((pl.bilde && pl.bilde.src ? 1 : 1.3) * s)}" font-weight="600" text-anchor="middle">${x.n}</text></a>`).join('')}
         </svg>
         <div class="steder">${pkt.map(x => `
           <div class="sted" id="sted-${e(x.id)}" data-kat="${x.kat}">

@@ -268,7 +268,7 @@ function faneBilder(m) {
 function fanePlan(m) {
   var pl = D.plan = D.plan || { w: 30, h: 36, rom: [], etiketter: [], punkter: [] };
   pl.punkter = pl.punkter || [];
-  var sk = Math.max(pl.w, pl.h) / 36, pad = 2 * sk, harBilde = pl.bilde && pl.bilde.src;
+  var sk = Math.max(pl.w, pl.h) / 36, pad = 2 * sk, harBilde = pl.bilde && pl.bilde.src, pk = harBilde ? .77 : 1;
   var svg = s('svg', { viewBox: [-pad, -pad, pl.w + pad * 2, pl.h + pad * 2].join(' ') });
   if (harBilde) svg.append(s('image', { href: vis(pl.bilde.src), x: 0, y: 0, width: pl.w, height: pl.h, preserveAspectRatio: 'none' }));
   else {
@@ -278,8 +278,8 @@ function fanePlan(m) {
   pl.punkter.forEach(function (p, i) {
     if (p.x == null) return;
     var valgt = valgtPunkt === p;
-    var t = s('text', { x: p.x, y: p.y + .46 * sk, fill: '#fff', 'font-size': 1.3 * sk, 'font-weight': 600, 'text-anchor': 'middle', 'pointer-events': 'none' }); t.textContent = i + 1;
-    svg.append(s('circle', { class: 'kat-' + p.kat, cx: p.x, cy: p.y, r: (valgt ? 1.9 : 1.35) * sk, stroke: valgt ? '#f0b429' : '#fff', 'stroke-width': (valgt ? .5 : .15) * sk, 'pointer-events': 'none' }), t);
+    var t = s('text', { x: p.x, y: p.y + .46 * sk * pk, fill: '#fff', 'font-size': 1.3 * sk * pk, 'font-weight': 600, 'text-anchor': 'middle', 'pointer-events': 'none' }); t.textContent = i + 1;
+    svg.append(s('circle', { class: 'kat-' + p.kat, cx: p.x, cy: p.y, r: (valgt ? 1.9 : 1.35) * sk * pk, stroke: valgt ? '#f0b429' : '#fff', 'stroke-width': (valgt ? .5 : .15) * sk, 'pointer-events': 'none' }), t);
   });
   svg.addEventListener('click', function (ev) {
     if (!valgtPunkt) return status('Velg først et punkt i listen under.');
