@@ -140,7 +140,7 @@
   "panel": {
     "plassering": "I koret, nederst på høyre side",
     "ui": {
-      "src": "../bilder/brandval-panel.jpg",
+      "src": "/bilder/brandval-kirke/panel-skjerm.jpg",
       "tekst": "Skjermbildet på betjeningspanelet i Brandval kirke"
     },
     "bilde": {
@@ -387,57 +387,6 @@
     "etter": "",
     "konsertlys": null
   },
-  "praktisk": [
-    {
-      "tema": "Parkering",
-      "tekst": ""
-    },
-    {
-      "tema": "Toalett",
-      "tekst": ""
-    },
-    {
-      "tema": "Nøkkel og adgang",
-      "tekst": ""
-    },
-    {
-      "tema": "Garderobe",
-      "tekst": ""
-    },
-    {
-      "tema": "Oppvarming om vinteren",
-      "tekst": ""
-    },
-    {
-      "tema": "Strøm til eget utstyr",
-      "tekst": ""
-    },
-    {
-      "tema": "Lasting og rigging",
-      "tekst": ""
-    },
-    {
-      "tema": "Universell utforming",
-      "tekst": ""
-    },
-    {
-      "tema": "Kjøkken",
-      "tekst": ""
-    },
-    {
-      "tema": "Brann og nødutgang",
-      "tekst": ""
-    },
-    {
-      "tema": "Wi-Fi",
-      "tekst": ""
-    }
-  ],
-  "kontakt": {
-    "navn": "",
-    "telefon": "",
-    "epost": ""
-  },
   "hjelp": [
     {
       "q": "Mikrofonen gir ingen lyd",
@@ -538,5 +487,6 @@
       "tittel": "Ekstra video",
       "src": ""
     }
-  ]
+  ],
+  "lenkeversjon": 1
 }
