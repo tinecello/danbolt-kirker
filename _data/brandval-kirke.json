@@ -15,10 +15,10 @@
       "undertittel": "Tale og vanlig bruk",
       "steg": [
         {
-          "tekst": "Gå til styringspanelet i koret, på høyre side. Det ligger oppå det grønne skapet.",
+          "tekst": "Gå til styringspanelet i koret, nederst på høyre side.",
           "bilde": {
             "src": "/bilder/brandval-kirke/tale-steg-mwgv6q40.jpg",
-            "tekst": "Styringspanelet oppå skapet i koret"
+            "tekst": "Styringspanelet i koret"
           }
         },
         {
@@ -59,15 +59,16 @@
       "undertittel": "Egen mikser og eget utstyr",
       "steg": [
         {
-          "tekst": "Koble mikseren til de to kontaktene merket V og H i skapet foran i koret.",
+          "tekst": "Koble mikseren til kirkens anlegg.",
+          "tips": "Ta kontakt med teknisk support før arrangementet for å avtale tilkobling.",
           "bilde": {
             "src": "",
-            "tekst": "De to XLR-kontaktene i skapet, merket V/H"
+            "tekst": "Tilkobling for ekstern mikser"
           }
         },
         {
           "tekst": "Skyv opp feideren «Ekstern mikser» på styringspanelet.",
-          "tips": "Nå går lyden fra mikseren ut i kirkens høyttalere. Alt ekstra utstyr kobles til mikseren, ikke til kirkens anlegg.",
+          "tips": "Nå går lyden fra mikseren ut i kirkens høyttalere. Alle ekstra mikrofoner og instrumenter kobles til mikseren.",
           "bilde": {
             "src": "",
             "tekst": "Feideren «Ekstern mikser» på skjermen"
@@ -108,18 +109,18 @@
           }
         },
         {
-          "tekst": "Kor og instrumenter kobles til mikrofonuttakene «Mik 1–3».",
-          "tips": "Hvor uttakene er, ser du under Finn fram. Trenger dere flere mikrofoner, må det brukes en egen mikser.",
+          "tekst": "Trenger kor eller instrumenter egne mikrofoner, brukes en ekstern mikser.",
+          "tips": "Se «Konsert med egen lydtekniker».",
           "bilde": {
             "src": "",
-            "tekst": "Mikrofonuttak med nummer synlig"
+            "tekst": "Kor med mikrofoner"
           }
         },
         {
-          "tekst": "Juster med feiderne «Mik 1–3» på styringspanelet.",
+          "tekst": "Juster solistmikrofonen med feideren på styringspanelet.",
           "bilde": {
             "src": "",
-            "tekst": "Feiderne for Mik 1–3 på skjermen"
+            "tekst": "Feiderne på skjermen"
           }
         }
       ],
@@ -138,7 +139,7 @@
     }
   ],
   "panel": {
-    "plassering": "I koret, på høyre side, oppå det tekniske skapet",
+    "plassering": "I koret, nederst på høyre side",
     "ui": {
       "src": "",
       "tekst": "Skjermbildet på styringspanelet i Brandval kirke"
@@ -163,7 +164,7 @@
       },
       {
         "navn": "Mik 1–3",
-        "forklaring": "Mikrofonuttak for kor og instrumenter"
+        "forklaring": "Mikrofoninngang 1–3"
       },
       {
         "navn": "Ekstern mikser",
@@ -211,7 +212,7 @@
   },
   "plan": {
     "w": 100,
-    "h": 125,
+    "h": 120,
     "rom": [
       [
         11,
@@ -259,57 +260,47 @@
         "id": "panel",
         "kat": "lyd",
         "navn": "Styringspanel",
-        "tekst": "I koret, på høyre side, oppå det tekniske skapet. Her slår du lyden av og på.",
+        "tekst": "I koret, nederst på høyre side. Her slår du lyden av og på.",
         "bilde": {
           "src": "",
           "tekst": "Styringspanelet i koret"
-        },
-        "x": 56.5,
-        "y": 45.5
+        }
       },
       {
         "id": "skap",
         "kat": "lyd",
         "navn": "Teknisk skap",
-        "tekst": "I koret, på høyre side. Her står lydprosessoren, forsterkeren til høyttalerne, teleslyngeforsterkeren og mottakerne for de trådløse mikrofonene. Her ligger også de trådløse mikrofonene, og her kobler lydteknikere til egen mikser.",
+        "tekst": "I koret, på høyre side. Her står lydprosessoren, forsterkeren til høyttalerne, teleslyngeforsterkeren og mottakerne for de trådløse mikrofonene.",
         "bilde": {
           "src": "",
           "tekst": "Det tekniske skapet i koret"
         },
-        "x": 63.7,
-        "y": 45.5
+        "x": 63.4,
+        "y": 43
       },
       {
         "id": "lesepult",
         "kat": "lyd",
         "navn": "Lesepult med mikrofon",
-        "tekst": "I koret. Mikrofonen er fast montert og alltid klar.",
+        "tekst": "I koret, på høyre side. Mikrofonen er fast montert og alltid klar.",
         "bilde": {
           "src": "",
           "tekst": "Lesepulten"
-        }
+        },
+        "x": 55.8,
+        "y": 43
       },
       {
         "id": "orgel",
         "kat": "lyd",
-        "navn": "Galleri og orgel",
-        "tekst": "Solistmikrofonen ligger hos organisten.",
+        "navn": "Galleri med orgel",
+        "tekst": "Orgelet står på galleriet over inngangen. Solistmikrofonen ligger hos organisten.",
         "bilde": {
           "src": "",
           "tekst": "Galleriet og orgelet"
         },
-        "x": 19.5,
-        "y": 92.1
-      },
-      {
-        "id": "uttak",
-        "kat": "lyd",
-        "navn": "Mikrofonuttak Mik 1–3",
-        "tekst": "I koret. For kor og instrumenter.",
-        "bilde": {
-          "src": "",
-          "tekst": "Mikrofonuttak"
-        }
+        "x": 17.5,
+        "y": 108
       },
       {
         "id": "brytere",
@@ -330,8 +321,8 @@
           "src": "",
           "tekst": "Hovedinngangen utenfra"
         },
-        "x": 49.4,
-        "y": 115.9
+        "x": 52.5,
+        "y": 113.5
       },
       {
         "id": "toalett",
@@ -362,12 +353,12 @@
           "src": "",
           "tekst": "Nødutgang"
         },
-        "x": 14.6,
-        "y": 61
+        "x": 13.5,
+        "y": 60
       }
     ],
     "bilde": {
-      "src": "/bilder/brandval-kirke/plantegning.jpg",
+      "src": "/bilder/brandval-kirke/plantegning.svg",
       "tekst": "Plantegning av Brandval kirke"
     }
   },
@@ -398,7 +389,7 @@
     },
     {
       "q": "Det kommer ingen lyd fra mikseren",
-      "a": "Sjekk at feideren «Ekstern mikser» er skjøvet opp og ikke står på «Mute», og at kablene står i kontaktene merket V og H."
+      "a": "Sjekk at feideren «Ekstern mikser» er skjøvet opp og ikke står på «Mute», og at kablene fra mikseren sitter i."
     },
     {
       "q": "Må vi justere lyden underveis?",
@@ -452,11 +443,11 @@
       ],
       [
         "Ekstern inngang",
-        "2 × XLR linjenivå (V/H) i skap foran i koret"
+        "2 × XLR linjenivå (V/H)"
       ],
       [
         "Mikrofoninnganger",
-        "3 (Mik 1–3)"
+        ""
       ],
       [
         "Måling",

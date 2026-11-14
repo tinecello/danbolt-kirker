@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" font-family="Manrope, Helvetica, Arial, sans-serif">
+<title>Plantegning av Brandval kirke</title>
+<path d="M43 4H62V22H66V46H89V55H94V65H89V74H66V100H61V114H44V100H39V74H16V65H11V55H16V46H39V22H43Z" fill="#fff" stroke="#25211f" stroke-width=".5" stroke-linejoin="miter"/>
+<g stroke="#25211f" stroke-width=".3" fill="none">
+<path d="M43 22H50M55 22H62"/><path d="M44 100H49.5M55.5 100H61"/><path d="M16 55V65M89 55V65" stroke-dasharray="1 1"/>
+</g>
+<g stroke="#c4c1b9" stroke-width=".45" fill="none"><path d="M41 77L49 77"/><path d="M56 77L64 77"/><path d="M41 79.6L49 79.6"/><path d="M56 79.6L64 79.6"/><path d="M41 82.19999999999999L49 82.19999999999999"/><path d="M56 82.19999999999999L64 82.19999999999999"/><path d="M41 84.79999999999998L49 84.79999999999998"/><path d="M56 84.79999999999998L64 84.79999999999998"/><path d="M41 87.39999999999998L49 87.39999999999998"/><path d="M56 87.39999999999998L64 87.39999999999998"/><path d="M41 89.99999999999997L49 89.99999999999997"/><path d="M56 89.99999999999997L64 89.99999999999997"/><path d="M41 92.59999999999997L49 92.59999999999997"/><path d="M56 92.59999999999997L64 92.59999999999997"/><path d="M41 95.19999999999996L49 95.19999999999996"/><path d="M56 95.19999999999996L64 95.19999999999996"/><path d="M41 49.5L49 49.5"/><path d="M56 49.5L64 49.5"/><path d="M41 52.1L49 52.1"/><path d="M56 52.1L64 52.1"/><path d="M41 54.7L49 54.7"/><path d="M56 54.7L64 54.7"/><path d="M41 57.300000000000004L49 57.300000000000004"/><path d="M56 57.300000000000004L64 57.300000000000004"/><path d="M41 59.900000000000006L49 59.900000000000006"/><path d="M56 59.900000000000006L64 59.900000000000006"/><path d="M41 62.50000000000001L49 62.50000000000001"/><path d="M56 62.50000000000001L64 62.50000000000001"/><path d="M41 65.10000000000001L49 65.10000000000001"/><path d="M56 65.10000000000001L64 65.10000000000001"/><path d="M41 67.7L49 67.7"/><path d="M56 67.7L64 67.7"/><path d="M41 70.3L49 70.3"/><path d="M56 70.3L64 70.3"/><path d="M19.5 49L19.5 57.5"/><path d="M19.5 62.5L19.5 71"/><path d="M85.5 49L85.5 57.5"/><path d="M85.5 62.5L85.5 71"/><path d="M22.2 49L22.2 57.5"/><path d="M22.2 62.5L22.2 71"/><path d="M82.8 49L82.8 57.5"/><path d="M82.8 62.5L82.8 71"/><path d="M24.9 49L24.9 57.5"/><path d="M24.9 62.5L24.9 71"/><path d="M80.1 49L80.1 57.5"/><path d="M80.1 62.5L80.1 71"/><path d="M27.599999999999998 49L27.599999999999998 57.5"/><path d="M27.599999999999998 62.5L27.599999999999998 71"/><path d="M77.4 49L77.4 57.5"/><path d="M77.4 62.5L77.4 71"/><path d="M30.299999999999997 49L30.299999999999997 57.5"/><path d="M30.299999999999997 62.5L30.299999999999997 71"/><path d="M74.7 49L74.7 57.5"/><path d="M74.7 62.5L74.7 71"/><path d="M33 49L33 57.5"/><path d="M33 62.5L33 71"/><path d="M72 49L72 57.5"/><path d="M72 62.5L72 71"/><path d="M35.7 49L35.7 57.5"/><path d="M35.7 62.5L35.7 71"/><path d="M69.3 49L69.3 57.5"/><path d="M69.3 62.5L69.3 71"/></g>
+<rect x="47" y="25.5" width="11" height="4" fill="#e7e8e5" stroke="#25211f" stroke-width=".3"/>
+<path d="M42.5 34.5Q52.5 40.5 62.5 34.5" fill="none" stroke="#25211f" stroke-width=".3"/>
+<g fill="#61554c" font-size="2" font-weight="600" letter-spacing=".25" text-anchor="middle">
+<text x="52.5" y="14">SAKRISTI</text><text x="52.5" y="33.6">KOR</text>
+<text x="52.5" y="61">SKIP</text><text x="52.5" y="108">VÅPENHUS</text>
+<text x="52.5" y="118.6" font-size="1.7">▲ HOVEDINNGANG</text>
+<text x="52.5" y="28.3" font-size="1.4" font-weight="500">ALTER</text>
+</g>
+<g>
+<rect x="4" y="93" width="27" height="19" fill="#fff" stroke="#25211f" stroke-width=".4" stroke-dasharray="1.2 1"/>
+<rect x="9.5" y="98" width="16" height="6" fill="#e7e8e5" stroke="#25211f" stroke-width=".3"/>
+<g fill="#61554c" text-anchor="middle" font-weight="600" letter-spacing=".25"><text x="17.5" y="91" font-size="2">GALLERI</text><text x="17.5" y="101.7" font-size="1.7">ORGEL</text><text x="17.5" y="96.2" font-size="1.4" font-weight="500" letter-spacing="0">Over inngangen</text></g>
+</g>
+</svg>
