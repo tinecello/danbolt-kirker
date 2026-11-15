@@ -99,6 +99,8 @@ dialog::backdrop{background:#25211fb0}
     <label>Kirkens navn <input id="nynavn" required placeholder="F.eks. Romedal kirke"></label>
     <label>Sted <input id="nysted" placeholder="Kommune eller tettsted"></label>
     <label>Start med innholdet fra <select id="nyfra"></select><span class="a-dempet" style="font-weight:400">Tekstene kopieres. Bilder, plasseringer og praktisk informasjon starter tomme.</span></label>
+    <label class="a-kryss"><input type="checkbox" id="nyskjult" checked> Hold siden skjult til den er klar</label>
+    <p class="a-dempet">En skjult kirke vises ikke på forsiden. Du ser den via «Se siden» her i admin, og gjør den synlig når du vil.</p>
     <p id="nyfeil" role="alert" style="color:#9a2a1c"></p>
     <div class="a-flex"><button class="a-hoved" type="submit" value="ok">Opprett</button><button type="button" id="nyavbryt">Avbryt</button></div>
   </form>
@@ -251,6 +253,8 @@ function tegn() {
       h('button', { class: 'a-hoved', type: 'button', text: 'Opprett siden', on: { click: function () { nyKirke(D.navn, D.sted); } } }));
     return;
   }
+  if (D.skjult) m.append(h('div', { class: 'a-hint a-flex' }, h('span', { style: 'flex:1 1 220px', text: 'Denne kirken er skjult. Den vises ikke på forsiden, og bare du ser den via «Se siden».' }),
+    h('button', { type: 'button', text: 'Gjør synlig', on: { click: function () { if (!confirm('Kirken blir synlig på forsiden for alle. Fortsette?')) return; delete D.skjult; lagre('gjort synlig').then(tegn, function () { D.skjult = true; }); } } })));
   ({ bilder: faneBilder, plan: fanePlan, panel: fanePanel, tekst: faneTekst, lenke: faneLenke })[fane](m);
   window.scrollTo(0, y);
 }
@@ -382,8 +386,11 @@ function fanePanel(m) {
 }
 
 function faneTekst(m) {
-  var pub = h('input', { type: 'checkbox', checked: !!D.publisert });
-  pub.addEventListener('change', function () { D.publisert = pub.checked; merk(); });
+  var naa = D.skjult ? 'skjult' : D.publisert ? 'ferdig' : 'arbeid';
+  var pub = h('select', {}, h('option', { value: 'skjult', text: 'Skjult: vises ikke på forsiden', selected: naa === 'skjult' }),
+    h('option', { value: 'arbeid', text: 'Synlig, merket «under arbeid»', selected: naa === 'arbeid' }),
+    h('option', { value: 'ferdig', text: 'Ferdig', selected: naa === 'ferdig' }));
+  pub.addEventListener('change', function () { if (pub.value === 'skjult') D.skjult = true; else delete D.skjult; D.publisert = pub.value === 'ferdig'; merk(); });
   var l = D.lys = D.lys || { tekst: '', hvor: '', bilde: { src: '', tekst: 'Lysbryterne' }, brytere: [], for: '', etter: '', konsertlys: null };
   var t = D.teknisk = D.teknisk || { intro: '', kjede: [], spesifikasjoner: [], bilde: { src: '', tekst: 'Teknisk utstyr' } };
   m.append(h('h2', { text: 'Tekster' }),
@@ -391,8 +398,8 @@ function faneTekst(m) {
       h('div', { class: 'a-rad' }, felt(D, 'navn', 'Navn'), felt(D, 'sted', 'Sted')),
       felt(D, 'fakta', 'Kort fakta', { hint: 'F.eks. Korskirke · 330 plasser' }),
       felt(D, 'ingress', 'Innledning', { lang: true }),
-      h('label', { class: 'a-kryss' }, pub, 'Siden er ferdig'),
-      h('p', { class: 'a-dempet', text: 'Når siden er ferdig, fjernes «under arbeid»-merket, tomme bilde- og tekstplasser skjules, og søkemotorer kan finne siden.' })),
+      h('label', {}, 'Status', pub),
+      h('p', { class: 'a-dempet', text: 'Skjult: bare du ser siden, via «Se siden». Under arbeid: siden er åpen og står på forsiden. Ferdig: «under arbeid»-merket fjernes, tomme bilde- og tekstplasser skjules, og søkemotorer kan finne siden.' })),
     del('oppg', 'Kom i gang: oppgavene',
       liste(D.oppgaver = D.oppgaver || [], function (o) {
         if (o.lenke) return [felt(o, 'tittel', 'Tittel'), felt(o, 'undertittel', 'Undertittel'), felt(o, 'lenke', 'Hopper til', { hint: '#lys' })];
@@ -450,7 +457,8 @@ function faneLenke(m) {
 function lagre(hva) {
   $('lagre').disabled = true; status('Lagrer …');
   return api('lagre', { slug: slug, data: D, sha: sha, hva: hva || 'innhold oppdatert' }).then(function (r) {
-    sha = r.sha; lenke = r.lenke; skitten = false;
+    sha = r.sha; lenke = r.lenke; skitten = false; $('apne').href = r.side;
+    var valg = $('velg').selectedOptions[0]; if (valg) valg.textContent = D.navn + (D.skjult ? ' (skjult)' : '');
     status('Lagret ' + new Date().toLocaleTimeString('nb-NO', { hour: '2-digit', minute: '2-digit' }) + '. Siden er oppdatert om omtrent ett minutt.');
   }).catch(function (f) { status(f.message); throw f; }).finally(function () { $('lagre').disabled = false; });
 }
@@ -459,7 +467,7 @@ function apneKirke(s) {
   status('Henter …');
   return api('hent', { slug: s }).then(function (r) {
     slug = s; D = r.data; sha = r.sha; lenke = r.lenke; skitten = false; valgtPunkt = valgtMerke = null;
-    $('velg').value = s; $('apne').href = '/' + s + '/'; $('apne').hidden = !!D.kommer; $('lagre').hidden = !!D.kommer;
+    $('velg').value = s; $('apne').href = r.side; $('apne').hidden = !!D.kommer; $('lagre').hidden = !!D.kommer;
     try { localStorage.setItem('kirke', s); } catch (e) {}
     status(''); tegn();
   }).catch(function (f) { status(f.message); });
@@ -467,11 +475,11 @@ function apneKirke(s) {
 function hentListe() {
   return api('liste').then(function (r) {
     kirker = r.kirker;
-    $('velg').replaceChildren.apply($('velg'), kirker.map(function (k) { return h('option', { value: k.slug, text: k.navn + (k.kommer ? ' (side kommer)' : '') }); }));
+    $('velg').replaceChildren.apply($('velg'), kirker.map(function (k) { return h('option', { value: k.slug, text: k.navn + (k.kommer ? ' (side kommer)' : k.skjult ? ' (skjult)' : '') }); }));
   });
 }
 function nyKirke(navn, sted) {
-  $('nynavn').value = navn || ''; $('nysted').value = sted || ''; $('nyfeil').textContent = '';
+  $('nynavn').value = navn || ''; $('nysted').value = sted || ''; $('nyfeil').textContent = ''; $('nyskjult').checked = true;
   $('nyfra').replaceChildren.apply($('nyfra'), kirker.filter(function (k) { return !k.kommer; }).map(function (k) { return h('option', { value: k.slug, text: k.navn }); }).concat(h('option', { value: '', text: 'Tom side' })));
   $('nydialog').showModal();
 }
@@ -483,7 +491,7 @@ $('nyskjema').addEventListener('submit', function (e) {
   e.preventDefault();
   if (skitten && !confirm('Du har endringer som ikke er lagret. Forkaste dem?')) return;
   skitten = false;
-  api('ny', { navn: $('nynavn').value, sted: $('nysted').value, kopierFra: $('nyfra').value }).then(function (r) {
+  api('ny', { navn: $('nynavn').value, sted: $('nysted').value, kopierFra: $('nyfra').value, skjult: $('nyskjult').checked }).then(function (r) {
     $('nydialog').close(); return hentListe().then(function () { fane = 'bilder'; tegnFaner(); return apneKirke(r.slug); });
   }).catch(function (f) { $('nyfeil').textContent = f.message; });
 });

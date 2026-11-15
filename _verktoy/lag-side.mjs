@@ -5,7 +5,7 @@
 import { FELT } from './felt.mjs';
 
 export function lagSide(k, pr = {}) {
-  const pub = !!k.publisert;
+  const pub = !!k.publisert && !k.skjult;
   const felt = pr.felt || {};
   const e = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   const tom = t => `<span class="tom">${e(t || 'Legges inn')}</span>`;
@@ -170,7 +170,7 @@ export function lagSide(k, pr = {}) {
 <!-- Generert fra _data/${e(k.slug)}.json. Endre datafilen, ikke denne filen. -->
 <title>${e(k.navn)} – lyd, lys og praktisk informasjon | Danbolt</title>
 <meta name="description" content="Slik bruker du lyd og lys i ${e(k.navn)}, ${e(k.sted)}. Praktisk informasjon for ansatte, frivillige, begravelsesbyråer, kor og konsertarrangører.">
-${k.publisert ? '' : '<meta name="robots" content="noindex">'}
+${k.publisert && !k.skjult ? '' : '<meta name="robots" content="noindex">'}
 <link rel="canonical" href="https://kirker.danbolt.no/${e(k.slug)}/">
 <meta name="theme-color" content="#f3efe6">
 <link rel="stylesheet" href="/kirke.css">
@@ -186,7 +186,7 @@ ${k.publisert ? '' : '<meta name="robots" content="noindex">'}
   </div>
 </header>
 <main class="wrap" style="padding-bottom:140px">
-  ${k.publisert ? '' : '<p class="draft-notice">Denne veiledningen er under arbeid. Enkelte bilder og opplysninger mangler.</p>'}
+  ${k.skjult ? '<p class="draft-notice">Forhåndsvisning. Denne siden er ikke publisert ennå.</p>' : k.publisert ? '' : '<p class="draft-notice">Denne veiledningen er under arbeid. Enkelte bilder og opplysninger mangler.</p>'}
   <section class="church-intro" style="padding-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:36px;align-items:end">
     <div style="display:flex;flex-direction:column;gap:16px">
       <span class="etikett">${e(k.sted)} · ${e(k.fakta)}</span>

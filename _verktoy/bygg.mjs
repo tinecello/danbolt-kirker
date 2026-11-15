@@ -4,10 +4,11 @@ import { readFileSync, writeFileSync, readdirSync, mkdirSync, rmSync, cpSync, ex
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { lagSide } from './lag-side.mjs';
-import { SLUG_RE, TOM_PRAKTISK } from './felt.mjs';
+import { SLUG_RE, TOM_PRAKTISK, sideSti } from './felt.mjs';
 
 const rot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ut = join(rot, '_site');
+const hemmelighet = process.env.LENKE_HEMMELIGHET || '';
 const les = f => JSON.parse(readFileSync(join(rot, '_data', f), 'utf8'));
 const e = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -28,15 +29,19 @@ const kirker = readdirSync(join(rot, '_data'))
 
 for (const { k, pr } of kirker) {
   if (k.kommer) continue; // står på forsiden som «Side kommer», har ingen egen side ennå
-  mkdirSync(join(ut, k.slug), { recursive: true });
-  writeFileSync(join(ut, k.slug, 'index.html'), lagSide(k, pr));
+  // Skjult kirke: ikke på forsiden, bare en forhåndsvisning for dem som har lenken fra admin.
+  if (k.skjult && !hemmelighet) { console.log(`${k.navn}: skjult, forhåndsvisning bygges bare hos Netlify.`); continue; }
+  const mappe = join(ut, sideSti(k, hemmelighet));
+  mkdirSync(mappe, { recursive: true });
+  writeFileSync(join(mappe, 'index.html'), lagSide(k, pr));
 }
+const synlige = kirker.filter(({ k }) => !k.skjult);
 
 // Forsiden lages fra den samme listen, så den alltid stemmer.
-const rader = kirker.map(({ k }) => k.kommer
+const rader = synlige.map(({ k }) => k.kommer
   ? `<div class="kirke church-row pending" data-sok="${e((k.navn + ' ' + (k.sted || '')).toLowerCase().trim())}"><span><strong>${e(k.navn)}</strong><small>${e(k.sted || 'Sted legges inn')}</small></span><span class="row-action">Side kommer</span></div>`
   : `<a class="kirke church-row" href="/${e(k.slug)}/" data-sok="${e((k.navn + ' ' + (k.sted || '')).toLowerCase().trim())}"><span><strong>${e(k.navn)}</strong><small>${e(k.sted)}</small></span><span class="row-action">Åpne veiledningen <span aria-hidden="true">→</span></span></a>`).join('');
-const underArbeid = kirker.some(({ k }) => k.kommer || !k.publisert);
+const underArbeid = synlige.some(({ k }) => k.kommer || !k.publisert);
 
 writeFileSync(join(ut, 'index.html'), `<!doctype html><html lang="nb"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kirker med Kirkelydpakken | Danbolt</title><meta name="description" content="Finn kirken og brukerveiledningen for lyd, lys og praktisk informasjon."><link rel="canonical" href="https://kirker.danbolt.no/"><meta name="theme-color" content="#25211f"><link rel="stylesheet" href="/stil.css"></head><body>
 <header><div style="display:flex;align-items:center;justify-content:space-between;gap:24px;margin:auto"><a class="brand" href="https://danbolt.no/"><img src="/danbolt-rom-logo.png" alt="Danbolt"><small>LYDTEKNIKK FOR KIRKEROM</small></a><a href="https://danbolt.no/">Til danbolt.no</a></div></header>
@@ -54,4 +59,4 @@ for (const f of ['stil.css', 'kirke.css', 'fonter', 'bilder', 'danbolt-rom-logo.
   if (existsSync(join(rot, f))) cpSync(join(rot, f), join(ut, f), { recursive: true });
 }
 
-console.log(`Bygget ${kirker.filter(x => !x.k.kommer).length} kirkeside(r) og forsiden.`);
+console.log(`Bygget ${kirker.filter(x => !x.k.kommer).length} kirkeside(r) og forsiden. Skjult: ${kirker.length - synlige.length}.`);

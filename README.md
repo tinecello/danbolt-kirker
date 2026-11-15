@@ -23,7 +23,7 @@ Alt som lagres, blir en vanlig endring i dette repoet. Netlify bygger da sidene 
 - `admin/`, `rediger/` – redigeringssidene
 - `netlify/functions/api.mjs` – lagringen bak redigeringssidene
 
-En kirke med `"kommer": true` vises på forsiden som «Side kommer». En side med `"publisert": true` er ferdig: «under arbeid» fjernes, tomme plasser skjules og søkemotorer slipper til.
+En kirke med `"skjult": true` vises ikke på forsiden. Den har bare en forhåndsvisning på en adresse som ikke kan gjettes (`/utkast/…`), og lenken står under «Se siden» i admin. En kirke med `"kommer": true` vises på forsiden som «Side kommer». En side med `"publisert": true` er ferdig: «under arbeid» fjernes, tomme plasser skjules og søkemotorer slipper til.
 
 ## Oppsett i Netlify (gjøres én gang)
 

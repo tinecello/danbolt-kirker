@@ -1,3 +1,5 @@
+import { createHmac } from 'node:crypto';
+
 // Feltene kirken selv fyller ut. Brukes av redigeringssiden, API-et og sidemalen.
 // Legg til et felt her, så dukker det opp alle tre steder.
 export const FELT = [
@@ -21,5 +23,10 @@ export const TOM_PRAKTISK = () => ({
   kontakt: { navn: '', telefon: '', epost: '' },
   oppdatert: '',
 });
+
+// Adressen til kirkesiden. En skjult kirke får en forhåndsvisning på en adresse som ikke kan gjettes.
+export const sideSti = (k, hemmelighet) => k.skjult
+  ? `/utkast/${k.slug}-${createHmac('sha256', hemmelighet).update('utkast:' + k.slug).digest('hex').slice(0, 14)}/`
+  : `/${k.slug}/`;
 
 export const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

@@ -9,7 +9,7 @@
 //   ADMIN_PASSORD      – passordet til /admin/
 //   LENKE_HEMMELIGHET  – tilfeldig tekst som kirkenes hemmelige lenker lages av
 import { createHmac, createHash, timingSafeEqual } from 'node:crypto';
-import { FELT, TOM_PRAKTISK, SLUG_RE } from '../../_verktoy/felt.mjs';
+import { FELT, TOM_PRAKTISK, SLUG_RE, sideSti } from '../../_verktoy/felt.mjs';
 
 const REPO = 'tinecello/danbolt-kirker';
 const env = n => Netlify.env.get(n) || '';
@@ -68,6 +68,8 @@ const skrivJson = (sti, data, melding, sha) =>
 const nokkel = (slug, versjon) =>
   createHmac('sha256', env('LENKE_HEMMELIGHET')).update(`${slug}:${versjon || 1}`).digest('base64url').slice(0, 24);
 
+const side = k => sideSti(k, env('LENKE_HEMMELIGHET'));
+
 // ---------- /api/kirke ----------
 async function kirke(req) {
   if (!env('GITHUB_TOKEN') || !env('LENKE_HEMMELIGHET')) throw new Feil(503, 'Redigering er ikke satt opp ennå.');
@@ -83,7 +85,7 @@ async function kirke(req) {
   delete naa.oppdatertAv;
 
   if (req.method === 'GET') {
-    return svar({ navn: tek.data.navn, sted: tek.data.sted || '', side: `/${slug}/`, felt: FELT, data: naa });
+    return svar({ navn: tek.data.navn, sted: tek.data.sted || '', side: side(tek.data), felt: FELT, data: naa });
   }
   if (req.method === 'PUT') {
     const inn = await req.json().catch(() => ({}));
@@ -120,6 +122,7 @@ function tomKopi(kilde, slug, navn, sted) {
   nullstill(k);
   Object.assign(k, { slug, navn, sted, fakta: '', publisert: false, lenkeversjon: 1 });
   delete k.kommer;
+  delete k.skjult;
   if (k.plan) {
     delete k.plan.bilde;
     (k.plan.punkter || []).forEach(p => { delete p.x; delete p.y; });
@@ -154,7 +157,7 @@ async function admin(req) {
       const filer = (await r.json()).map(f => f.name).filter(n => n.endsWith('.json') && !n.endsWith('.praktisk.json') && !n.startsWith('_'));
       const kirker = await Promise.all(filer.map(async n => {
         const { data } = await lesJson(`_data/${n}`);
-        return { slug: data.slug, navn: data.navn, sted: data.sted || '', kommer: !!data.kommer, publisert: !!data.publisert };
+        return { slug: data.slug, navn: data.navn, sted: data.sted || '', kommer: !!data.kommer, publisert: !!data.publisert, skjult: !!data.skjult };
       }));
       return svar({ kirker: kirker.sort((a, b) => a.navn.localeCompare(b.navn, 'nb')) });
     }
@@ -167,6 +170,7 @@ async function admin(req) {
         data: tek.data, sha: tek.sha,
         praktisk: pr ? pr.data : TOM_PRAKTISK(),
         lenke: `/rediger/#${slug}.${nokkel(slug, tek.data.lenkeversjon)}`,
+        side: side(tek.data),
       });
     }
     case 'lagre': {
@@ -175,7 +179,7 @@ async function admin(req) {
       if (!d || typeof d !== 'object' || d.slug !== slug || !tekst(d.navn, 200)) throw new Feil(400, 'Ugyldig innhold.');
       if (JSON.stringify(d).length > 400_000) throw new Feil(413, 'Innholdet er for stort.');
       const sha = await skrivJson(`_data/${slug}.json`, d, `${d.navn}: ${tekst(inn.hva, 80) || 'innhold oppdatert'}`, inn.sha);
-      return svar({ ok: true, sha, lenke: `/rediger/#${slug}.${nokkel(slug, d.lenkeversjon)}` });
+      return svar({ ok: true, sha, lenke: `/rediger/#${slug}.${nokkel(slug, d.lenkeversjon)}`, side: side(d) });
     }
     case 'bilde': {
       krevSlug();
@@ -203,7 +207,8 @@ async function admin(req) {
         if (!kilde || kilde.data.kommer) throw new Feil(404, 'Fant ikke kirken å kopiere fra.');
         data = tomKopi(kilde.data, ny, navn, tekst(inn.sted, 120));
       }
-      await skrivJson(`_data/${ny}.json`, data, `${navn}: ny kirkeside`, finnes?.sha);
+      if (inn.skjult) data.skjult = true;
+      await skrivJson(`_data/${ny}.json`, data, `${navn}: ny kirkeside${inn.skjult ? ' (skjult)' : ''}`, finnes?.sha);
       if (!(await lesFil(`_data/${ny}.praktisk.json`))) await skrivJson(`_data/${ny}.praktisk.json`, TOM_PRAKTISK(), `${navn}: tom praktisk-fil`);
       return svar({ ok: true, slug: ny });
     }
