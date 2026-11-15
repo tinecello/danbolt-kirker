@@ -120,7 +120,7 @@
   "panel": {
     "plassering": "I koret, nederst på høyre side",
     "ui": {
-      "src": "",
+      "src": "/bilder/brandval-kirke/panel-skjerm.jpg",
       "tekst": "Skjermbildet på styringspanelet i Brandval kirke"
     },
     "bilde": {
@@ -153,37 +153,37 @@
     "merker": [
       {
         "b": "A",
-        "x": 8,
-        "y": 45,
+        "x": 2.6,
+        "y": 47,
         "tittel": "Feiderne",
         "tekst": "Én feider for hver mikrofon. Bruk dem bare hvis noe er for svakt eller for sterkt. Skyv opp for sterkere, ned for svakere.",
         "skyvere": true
       },
       {
         "b": "B",
-        "x": 8,
-        "y": 78,
+        "x": 2.6,
+        "y": 71.5,
         "tittel": "Mute",
         "tekst": "Slår av lyden fra én mikrofon. Trykk en gang til for å slå den på igjen."
       },
       {
         "b": "C",
-        "x": 70,
-        "y": 20,
+        "x": 69.5,
+        "y": 21,
         "tittel": "Ekstern mikser",
         "tekst": "Brukes bare når en lydtekniker har koblet til egen mikser. La den ellers stå nede."
       },
       {
         "b": "D",
-        "x": 90,
-        "y": 20,
+        "x": 84,
+        "y": 24.5,
         "tittel": "Master",
         "tekst": "Volum for hele kirken."
       },
       {
         "b": "E",
-        "x": 50,
-        "y": 93,
+        "x": 27.5,
+        "y": 86.5,
         "tittel": "ALL LYD AV/PÅ",
         "tekst": "Slår hele anlegget på og av. Hold knappen inne i 2 sekunder."
       }
