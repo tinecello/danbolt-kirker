@@ -10,7 +10,8 @@ export function lagSide(k, pr = {}) {
   const e = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   const tom = t => `<span class="tom">${e(t || 'Legges inn')}</span>`;
   const v = (s, t) => s ? e(s) : tom(t);
-  const bilde = (b, cls = '') => b && b.src
+  // En bildeplass som er fjernet i admin (skjul), vises aldri, heller ikke som tom plass.
+  const bilde = (b, cls = '') => b && b.skjul ? '' : b && b.src
     ? `<img class="foto ${cls}" src="${e(b.src)}" alt="${e(b.tekst)}" loading="lazy">`
     : pub ? '' : `<div class="bilde ${cls}"><span>Bilde</span>${e(b && b.tekst)}</div>`;
   // Video: lim inn en YouTube- eller Vimeo-lenke, eller adressen til en videofil.
