@@ -1,6 +1,45 @@
 {
   "slug": "vang-kirke",
   "navn": "Vang kirke",
-  "sted": "",
-  "kommer": true
+  "sted": "Hamar",
+  "fakta": "",
+  "ingress": "Her finner du det du trenger for å bruke lyd og lys i kirken, og praktisk informasjon for deg som skal ha et arrangement her.",
+  "hovedbilde": {
+    "src": "",
+    "tekst": "Kirkerommet sett fra inngangen"
+  },
+  "oppgaver": [],
+  "plan": {
+    "w": 30,
+    "h": 36,
+    "rom": [],
+    "etiketter": [],
+    "punkter": []
+  },
+  "lys": {
+    "tekst": "",
+    "hvor": "",
+    "bilde": {
+      "src": "",
+      "tekst": "Lysbryterne"
+    },
+    "brytere": [],
+    "for": "",
+    "etter": "",
+    "konsertlys": null
+  },
+  "hjelp": [],
+  "teknisk": {
+    "intro": "",
+    "kjede": [],
+    "spesifikasjoner": [],
+    "bilde": {
+      "src": "",
+      "tekst": "Teknisk utstyr"
+    }
+  },
+  "galleri": [],
+  "lenkeversjon": 1,
+  "skjult": true,
+  "paForsiden": true
 }
