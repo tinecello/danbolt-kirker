@@ -1,0 +1,23 @@
+{
+  "felt": {
+    "parkering": "",
+    "nokkel": "",
+    "universell": "",
+    "lasting": "",
+    "toalett": "",
+    "garderobe": "",
+    "kjokken": "",
+    "wifi": "",
+    "oppvarming": "",
+    "strom": "",
+    "brann": "",
+    "lys": "",
+    "annet": ""
+  },
+  "kontakt": {
+    "navn": "",
+    "telefon": "",
+    "epost": ""
+  },
+  "oppdatert": ""
+}
