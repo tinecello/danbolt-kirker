@@ -218,8 +218,9 @@ function bildeplass(b, navn, etikett, etter) {
     h('div', { class: 'a-kol' },
       h('b', { text: etikett }), tekst,
       h('div', { class: 'a-flex' }, knapp,
-        b.src ? h('button', { type: 'button', class: 'a-liten a-fare', text: 'Fjern bildet', on: { click: function () { b.src = ''; merk(); tegn(); } } })
-          : h('button', { type: 'button', class: 'a-liten', text: 'Fjern plassen', on: { click: function () { b.skjul = true; merk(); tegn(); } } }))));
+        h('button', { type: 'button', class: 'a-liten a-fare', text: 'Fjern', on: { click: function () {
+          if (b.src && !confirm('Fjerne dette bildet fra kirkesiden?')) return;
+          b.src = ''; b.skjul = true; merk(); tegn(); } } }))));
 }
 function alleBilder() {
   var ut = [];
@@ -277,7 +278,7 @@ function tegn() {
 function faneBilder(m) {
   var samlet = alleBilder(), alle = samlet.filter(function (x) { return !x.b.skjul; }), fjernet = samlet.filter(function (x) { return x.b.skjul; });
   var inne = alle.filter(function (x) { return x.b.src; }).length, tomme = alle.filter(function (x) { return !x.b.src; }), forrige = '';
-  m.append(h('h2', { text: 'Bilder' }), h('p', { class: 'a-dempet', text: inne + ' av ' + alle.length + ' bilder er lagt inn. Bildet lagres og publiseres med en gang du har valgt det. På mobil kan du ta bildet direkte. Plasser du ikke trenger, fjerner du med «Fjern plassen». Husk å trykke Lagre etterpå.' }));
+  m.append(h('h2', { text: 'Bilder' }), h('p', { class: 'a-dempet', text: inne + ' av ' + alle.length + ' bilder er lagt inn. Bildet lagres og publiseres med en gang du har valgt det. På mobil kan du ta bildet direkte. Bilder og plasser du ikke trenger, fjerner du med «Fjern». Trykk Lagre når du er ferdig.' }));
   if (tomme.length > 1) m.append(h('div', { class: 'a-flex' }, h('button', { type: 'button', text: 'Fjern alle ' + tomme.length + ' plasser uten bilde', on: { click: function () {
     if (!confirm('Fjerne alle ' + tomme.length + ' bildeplasser som ikke har bilde? Du kan ta dem tilbake nederst på siden.')) return;
     tomme.forEach(function (x) { x.b.skjul = true; }); merk(); tegn(); } } })));
