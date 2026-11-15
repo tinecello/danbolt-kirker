@@ -264,8 +264,8 @@ function tegn() {
       h('p', { class: 'a-dempet', text: D.panel && D.panel.ui && D.panel.ui.src ? 'Skjermbildet av styringspanelet er lastet opp og følger med når siden opprettes.' : 'Skjermbildet av styringspanelet er ikke lastet opp ennå.' }), panelLenkeBoks());
     return;
   }
-  if (D.skjult) m.append(h('div', { class: 'a-hint a-flex' }, h('span', { style: 'flex:1 1 220px', text: 'Denne kirken er skjult. Den vises ikke på forsiden, og bare du ser den via «Se siden».' }),
-    h('button', { type: 'button', text: 'Gjør synlig', on: { click: function () { if (!confirm('Kirken blir synlig på forsiden for alle. Fortsette?')) return; delete D.skjult; lagre('gjort synlig').then(tegn, function () { D.skjult = true; }); } } })));
+  if (D.skjult) m.append(h('div', { class: 'a-hint a-flex' }, h('span', { style: 'flex:1 1 220px', text: D.paForsiden ? 'Denne kirken er skjult. På forsiden står den som «Side kommer», og bare du ser siden via «Se siden».' : 'Denne kirken er skjult. Den vises ikke på forsiden, og bare du ser den via «Se siden».' }),
+    h('button', { type: 'button', text: 'Gjør synlig', on: { click: function () { if (!confirm('Kirkens side blir åpen for alle. Fortsette?')) return; delete D.skjult; delete D.paForsiden; lagre('gjort synlig').then(tegn, function () { D.skjult = true; }); } } })));
   ({ bilder: faneBilder, plan: fanePlan, panel: fanePanel, tekst: faneTekst, lenke: faneLenke })[fane](m);
   window.scrollTo(0, y);
 }
@@ -397,11 +397,16 @@ function fanePanel(m) {
 }
 
 function faneTekst(m) {
-  var naa = D.skjult ? 'skjult' : D.publisert ? 'ferdig' : 'arbeid';
+  var naa = D.skjult ? (D.paForsiden ? 'kommer' : 'skjult') : D.publisert ? 'ferdig' : 'arbeid';
   var pub = h('select', {}, h('option', { value: 'skjult', text: 'Skjult: vises ikke på forsiden', selected: naa === 'skjult' }),
+    h('option', { value: 'kommer', text: 'Skjult: står som «Side kommer» på forsiden', selected: naa === 'kommer' }),
     h('option', { value: 'arbeid', text: 'Synlig, merket «under arbeid»', selected: naa === 'arbeid' }),
     h('option', { value: 'ferdig', text: 'Ferdig', selected: naa === 'ferdig' }));
-  pub.addEventListener('change', function () { if (pub.value === 'skjult') D.skjult = true; else delete D.skjult; D.publisert = pub.value === 'ferdig'; merk(); });
+  pub.addEventListener('change', function () {
+    if (pub.value === 'skjult' || pub.value === 'kommer') D.skjult = true; else delete D.skjult;
+    if (pub.value === 'kommer') D.paForsiden = true; else delete D.paForsiden;
+    D.publisert = pub.value === 'ferdig'; merk();
+  });
   var l = D.lys = D.lys || { tekst: '', hvor: '', bilde: { src: '', tekst: 'Lysbryterne' }, brytere: [], for: '', etter: '', konsertlys: null };
   var t = D.teknisk = D.teknisk || { intro: '', kjede: [], spesifikasjoner: [], bilde: { src: '', tekst: 'Teknisk utstyr' } };
   m.append(h('h2', { text: 'Tekster' }),

@@ -35,13 +35,14 @@ for (const { k, pr } of kirker) {
   mkdirSync(mappe, { recursive: true });
   writeFileSync(join(mappe, 'index.html'), lagSide(k, pr));
 }
-const synlige = kirker.filter(({ k }) => !k.skjult);
+// En skjult kirke kan likevel stå på forsiden som «Side kommer» (paForsiden).
+const synlige = kirker.filter(({ k }) => !k.skjult || k.paForsiden);
 
 // Forsiden lages fra den samme listen, så den alltid stemmer.
-const rader = synlige.map(({ k }) => k.kommer
+const rader = synlige.map(({ k }) => k.kommer || k.skjult
   ? `<div class="kirke church-row pending" data-sok="${e((k.navn + ' ' + (k.sted || '')).toLowerCase().trim())}"><span><strong>${e(k.navn)}</strong><small>${e(k.sted || 'Sted legges inn')}</small></span><span class="row-action">Side kommer</span></div>`
   : `<a class="kirke church-row" href="/${e(k.slug)}/" data-sok="${e((k.navn + ' ' + (k.sted || '')).toLowerCase().trim())}"><span><strong>${e(k.navn)}</strong><small>${e(k.sted)}</small></span><span class="row-action">Åpne veiledningen <span aria-hidden="true">→</span></span></a>`).join('');
-const underArbeid = synlige.some(({ k }) => k.kommer || !k.publisert);
+const underArbeid = synlige.some(({ k }) => k.kommer || k.skjult || !k.publisert);
 
 writeFileSync(join(ut, 'index.html'), `<!doctype html><html lang="nb"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kirker med Kirkelydpakken | Danbolt</title><meta name="description" content="Finn kirken og brukerveiledningen for lyd, lys og praktisk informasjon."><link rel="canonical" href="https://kirker.danbolt.no/"><meta name="theme-color" content="#25211f"><link rel="stylesheet" href="/stil.css"></head><body>
 <header><div style="display:flex;align-items:center;justify-content:space-between;gap:24px;margin:auto"><a class="brand" href="https://danbolt.no/"><img src="/danbolt-rom-logo.png" alt="Danbolt"><small>LYDTEKNIKK FOR KIRKEROM</small></a><a href="https://danbolt.no/">Til danbolt.no</a></div></header>

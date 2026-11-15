@@ -156,6 +156,7 @@ function tomKopi(kilde, slug, navn, sted) {
   Object.assign(k, { slug, navn, sted, fakta: '', publisert: false, lenkeversjon: 1 });
   delete k.kommer;
   delete k.skjult;
+  delete k.paForsiden;
   if (k.plan) {
     delete k.plan.bilde;
     (k.plan.punkter || []).forEach(p => { delete p.x; delete p.y; });
@@ -190,7 +191,7 @@ async function admin(req) {
       const filer = (await r.json()).map(f => f.name).filter(n => n.endsWith('.json') && !n.endsWith('.praktisk.json') && !n.startsWith('_'));
       const kirker = await Promise.all(filer.map(async n => {
         const { data } = await lesJson(`_data/${n}`);
-        return { slug: data.slug, navn: data.navn, sted: data.sted || '', kommer: !!data.kommer, publisert: !!data.publisert, skjult: !!data.skjult };
+        return { slug: data.slug, navn: data.navn, sted: data.sted || '', kommer: !!data.kommer, publisert: !!data.publisert, skjult: !!data.skjult, paForsiden: !!data.paForsiden };
       }));
       return svar({ kirker: kirker.sort((a, b) => a.navn.localeCompare(b.navn, 'nb')) });
     }
@@ -241,6 +242,8 @@ async function admin(req) {
         data = tomKopi(kilde.data, ny, navn, tekst(inn.sted, 120));
       }
       if (inn.skjult) data.skjult = true;
+      // Sto kirken allerede på forsiden som «Side kommer», blir den stående der.
+      if (inn.skjult && finnes?.data.kommer) data.paForsiden = true;
       // Skjermbilde som er lastet opp før siden ble opprettet, følger med.
       const forrige = finnes?.data.panel?.ui?.src;
       if (forrige) { data.panel = data.panel || {}; data.panel.ui = { src: forrige, tekst: `Skjermbildet på styringspanelet i ${navn}` }; }

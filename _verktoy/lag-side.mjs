@@ -46,7 +46,7 @@ export function lagSide(k, pr = {}) {
   const p = k.panel;
   const panelHtml = p ? `
   <section id="panel" class="del">
-    <div class="topp"><span class="etikett">Lyd</span><h2>Slik ser panelet ut</h2><p class="ingress">${e(p.plassering)}. Bokstavene på bildet er forklart under.</p></div>
+    <div class="topp"><span class="etikett">Lyd</span><h2>Slik ser panelet ut</h2><p class="ingress">${p.plassering ? e(p.plassering) + '. ' : ''}Bokstavene på bildet er forklart under.</p></div>
     <figure class="ui">
       ${p.ui && p.ui.src ? `<img src="${e(p.ui.src)}" alt="${e(p.ui.tekst)}">` : bilde(p.ui || { tekst: 'Skjermbilde av panelet' }, 'bred')}
       ${(p.merker || []).map(m => `<span class="merke" style="left:${m.x}%;top:${m.y}%">${e(m.b)}</span>`).join('')}
