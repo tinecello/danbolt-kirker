@@ -22,36 +22,15 @@
           }
         },
         {
-          "tekst": "Hold «ALL LYD AV/PÅ» inne i 2 sekunder for å slå på lyden.",
-          "tips": "Anlegget har bare ett skjermbilde. Det brukes til alt: gudstjeneste, begravelse, vielse og dåp.",
+          "tekst": "Snakk som vanlig, både i den trådløse mikrofonen og ved lesepulten.",
+          "tips": "Hvor nær mikrofonen du bør være, avhenger av hvor kraftig stemme du har.",
           "bilde": {
             "src": "",
-            "tekst": "Skjermen med «ALL LYD AV/PÅ»-knappen"
-          }
-        },
-        {
-          "tekst": "Hent en trådløs mikrofon i skapet foran i koret, og skru den på.",
-          "tips": "Lesepultmikrofonen er alltid klar. Den trenger du ikke skru på.",
-          "bilde": {
-            "src": "",
-            "tekst": "Mikrofonskapet åpent, mikrofonene synlige"
-          }
-        },
-        {
-          "tekst": "Snakk som vanlig. Lyden er ferdig innstilt for hele kirken.",
-          "tips": "Er det for svakt eller for sterkt? Juster feideren for mikrofonen på styringspanelet.",
-          "bilde": {
-            "src": "",
-            "tekst": "Taler med hodebøyle ved alteret"
+            "tekst": "Taler ved lesepulten"
           }
         }
       ],
-      "etter": "Hold «ALL LYD AV/PÅ» inne i 2 sekunder. Skru av mikrofonen og legg den tilbake i skapet.",
-      "video": {
-        "tittel": "Slik slår du på lydanlegget",
-        "varighet": "1 min",
-        "src": ""
-      }
+      "etter": "Hold «ALL LYD AV/PÅ» inne i 2 sekunder. Skru av mikrofonen og legg den tilbake i skapet."
     },
     {
       "id": "konsert",

@@ -38,7 +38,7 @@ export function lagSide(k, pr = {}) {
       </ol>
       <div class="etter-rad">
         ${o.etter ? `<div class="etter"><span class="etikett">Etter bruk</span><p>${e(o.etter)}</p></div>` : ''}
-        ${o.video ? video(o.video) : ''}
+        ${o.video && (o.video.src || o.video.tittel) ? video(o.video) : ''}
       </div>
     </div>`).join('');
 
