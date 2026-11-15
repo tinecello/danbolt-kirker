@@ -27,3 +27,10 @@
     X-Robots-Tag = "noindex"
     Referrer-Policy = "no-referrer"
     Cache-Control = "no-store"
+
+[[headers]]
+  for = "/panel/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+    Referrer-Policy = "no-referrer"
+    Cache-Control = "no-store"

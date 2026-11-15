@@ -3,3 +3,4 @@ Disallow: /admin/
 Disallow: /rediger/
 Disallow: /api/
 Disallow: /utkast/
+Disallow: /panel/

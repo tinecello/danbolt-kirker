@@ -55,7 +55,7 @@ sok.addEventListener('input',function(){var q=sok.value.trim().toLowerCase(),n=0
 `);
 
 // Statiske filer.
-for (const f of ['stil.css', 'kirke.css', 'fonter', 'bilder', 'danbolt-rom-logo.png', 'robots.txt', 'rediger', 'admin']) {
+for (const f of ['stil.css', 'kirke.css', 'fonter', 'bilder', 'danbolt-rom-logo.png', 'robots.txt', 'rediger', 'admin', 'panel']) {
   if (existsSync(join(rot, f))) cpSync(join(rot, f), join(ut, f), { recursive: true });
 }
 

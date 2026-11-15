@@ -2,6 +2,7 @@
 // så Netlify bygger siden på nytt og historikken tar vare på alt som er endret.
 //
 //   /api/kirke  – kirken selv: leser og lagrer bare _data/<slug>.praktisk.json
+//   /api/panel  – egen lenke per kirke: laster bare opp skjermbildet av styringspanelet
 //   /api/admin  – Danbolt: teknisk innhold, bilder, nye kirker
 //
 // Miljøvariabler i Netlify (scope: Functions):
@@ -69,6 +70,38 @@ const nokkel = (slug, versjon) =>
   createHmac('sha256', env('LENKE_HEMMELIGHET')).update(`${slug}:${versjon || 1}`).digest('base64url').slice(0, 24);
 
 const side = k => sideSti(k, env('LENKE_HEMMELIGHET'));
+// Egen lenke som bare kan laste opp skjermbildet av styringspanelet.
+const panelNokkel = (slug, versjon) =>
+  createHmac('sha256', env('LENKE_HEMMELIGHET')).update(`panel:${slug}:${versjon || 1}`).digest('base64url').slice(0, 24);
+const panelLenke = k => `/panel/#${k.slug}.${panelNokkel(k.slug, k.lenkeversjon)}`;
+const erJpeg = b64 => {
+  if (!b64.startsWith('/9j/')) throw new Feil(400, 'Bildet må være JPEG.');
+  if (b64.length > 5_500_000) throw new Feil(413, 'Bildet er for stort.');
+};
+
+// ---------- /api/panel ----------
+async function panel(req) {
+  if (!env('GITHUB_TOKEN') || !env('LENKE_HEMMELIGHET')) throw new Feil(503, 'Opplasting er ikke satt opp ennå.');
+  const ugyldig = new Feil(403, 'Lenken er ikke gyldig lenger. Ta kontakt med Danbolt for å få en ny.');
+  const slug = req.headers.get('x-kirke') || '';
+  if (!SLUG_RE.test(slug)) throw ugyldig;
+  const tek = await lesJson(`_data/${slug}.json`);
+  if (!tek || !lik(req.headers.get('x-nokkel') || '', panelNokkel(slug, tek.data.lenkeversjon))) throw ugyldig;
+  const d = tek.data;
+
+  if (req.method === 'GET') return svar({ navn: d.navn, harBilde: !!d.panel?.ui?.src });
+  if (req.method === 'POST') {
+    const b64 = String((await req.json().catch(() => ({}))).data || '');
+    erJpeg(b64);
+    const sti = `bilder/${slug}/panel-skjerm-${Date.now().toString(36)}.jpg`;
+    await skrivFil(sti, b64, `${slug}: skjermbilde av styringspanelet`);
+    d.panel = d.panel || {};
+    d.panel.ui = { src: `/${sti}`, tekst: d.panel.ui?.tekst || `Skjermbildet på styringspanelet i ${d.navn}` };
+    await skrivJson(`_data/${slug}.json`, d, `${d.navn}: skjermbilde av styringspanelet lastet opp`, tek.sha);
+    return svar({ ok: true });
+  }
+  throw new Feil(405, 'Ikke støttet.');
+}
 
 // ---------- /api/kirke ----------
 async function kirke(req) {
@@ -171,6 +204,7 @@ async function admin(req) {
         praktisk: pr ? pr.data : TOM_PRAKTISK(),
         lenke: `/rediger/#${slug}.${nokkel(slug, tek.data.lenkeversjon)}`,
         side: side(tek.data),
+        panelLenke: panelLenke(tek.data),
       });
     }
     case 'lagre': {
@@ -179,15 +213,14 @@ async function admin(req) {
       if (!d || typeof d !== 'object' || d.slug !== slug || !tekst(d.navn, 200)) throw new Feil(400, 'Ugyldig innhold.');
       if (JSON.stringify(d).length > 400_000) throw new Feil(413, 'Innholdet er for stort.');
       const sha = await skrivJson(`_data/${slug}.json`, d, `${d.navn}: ${tekst(inn.hva, 80) || 'innhold oppdatert'}`, inn.sha);
-      return svar({ ok: true, sha, lenke: `/rediger/#${slug}.${nokkel(slug, d.lenkeversjon)}`, side: side(d) });
+      return svar({ ok: true, sha, lenke: `/rediger/#${slug}.${nokkel(slug, d.lenkeversjon)}`, side: side(d), panelLenke: panelLenke(d) });
     }
     case 'bilde': {
       krevSlug();
       const navn = String(inn.navn || '');
       const b64 = String(inn.data || '');
       if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(navn) || navn.length > 80) throw new Feil(400, 'Ugyldig bildenavn.');
-      if (!b64.startsWith('/9j/')) throw new Feil(400, 'Bildet må være JPEG.');
-      if (b64.length > 5_500_000) throw new Feil(413, 'Bildet er for stort.');
+      erJpeg(b64);
       const sti = `bilder/${slug}/${navn}.jpg`;
       const finnes = await gh(`${sti}?ref=${encodeURIComponent(gren())}`);
       const sha = finnes.ok ? (await finnes.json()).sha : undefined;
@@ -208,6 +241,9 @@ async function admin(req) {
         data = tomKopi(kilde.data, ny, navn, tekst(inn.sted, 120));
       }
       if (inn.skjult) data.skjult = true;
+      // Skjermbilde som er lastet opp før siden ble opprettet, følger med.
+      const forrige = finnes?.data.panel?.ui?.src;
+      if (forrige) { data.panel = data.panel || {}; data.panel.ui = { src: forrige, tekst: `Skjermbildet på styringspanelet i ${navn}` }; }
       await skrivJson(`_data/${ny}.json`, data, `${navn}: ny kirkeside${inn.skjult ? ' (skjult)' : ''}`, finnes?.sha);
       if (!(await lesFil(`_data/${ny}.praktisk.json`))) await skrivJson(`_data/${ny}.praktisk.json`, TOM_PRAKTISK(), `${navn}: tom praktisk-fil`);
       return svar({ ok: true, slug: ny });
@@ -219,7 +255,8 @@ async function admin(req) {
 
 export default async (req) => {
   try {
-    return new URL(req.url).pathname === '/api/kirke' ? await kirke(req) : await admin(req);
+    const sti = new URL(req.url).pathname;
+    return sti === '/api/kirke' ? await kirke(req) : sti === '/api/panel' ? await panel(req) : await admin(req);
   } catch (f) {
     if (f instanceof Feil) return svar({ feil: f.message }, f.status);
     console.error(f);
@@ -227,4 +264,4 @@ export default async (req) => {
   }
 };
 
-export const config = { path: ['/api/kirke', '/api/admin'] };
+export const config = { path: ['/api/kirke', '/api/panel', '/api/admin'] };

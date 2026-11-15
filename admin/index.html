@@ -111,7 +111,7 @@ dialog::backdrop{background:#25211fb0}
 'use strict';
 var $ = function (id) { return document.getElementById(id); };
 var KAT = { lyd: 'Lyd', lys: 'Lys', praktisk: 'Praktisk' };
-var pw = '', kirker = [], slug = '', D = null, sha = '', lenke = '', skitten = false, fane = 'bilder';
+var pw = '', kirker = [], slug = '', D = null, sha = '', lenke = '', panelLenke = '', skitten = false, fane = 'bilder';
 var lokale = {};          // nyopplastede bilder vises fra enheten til siden er bygget på nytt
 var valgtPunkt = null, valgtMerke = null, apne = {};
 
@@ -237,6 +237,16 @@ function alleBilder() {
   return ut;
 }
 
+// Lenke som bare kan laste opp skjermbildet av styringspanelet. Kan sendes til den som står ved panelet.
+function panelLenkeBoks() {
+  var full = location.origin + panelLenke, inn = h('input', { readonly: true, value: full, 'aria-label': 'Lenke for opplasting av skjermbilde' });
+  return h('div', { class: 'a-kort' }, h('b', { text: 'Lenke for opplasting av skjermbildet' }),
+    h('p', { class: 'a-dempet', text: 'Den som åpner lenken, kan laste opp skjermbildet av styringspanelet for ' + D.navn + ', og ingenting annet. Krever ikke passord.' }), inn,
+    h('div', { class: 'a-flex' },
+      h('button', { type: 'button', text: 'Kopier lenken', on: { click: function (e) { navigator.clipboard.writeText(full).then(function () { e.target.textContent = 'Kopiert'; }, function () { inn.select(); }); } } }),
+      h('a', { class: 'a-knapp', href: panelLenke, target: '_blank', rel: 'noopener', text: 'Åpne' })));
+}
+
 // ---------- faner ----------
 var FANER = [['bilder', 'Bilder'], ['plan', 'Plantegning'], ['panel', 'Panel'], ['tekst', 'Tekster'], ['lenke', 'Kirkens lenke']];
 function tegnFaner() {
@@ -250,7 +260,8 @@ function tegn() {
   if (!D) return;
   if (D.kommer) {
     m.append(h('h2', { text: D.navn }), h('p', { text: 'Denne kirken står på forsiden som «Side kommer», men har ingen egen side ennå.' }),
-      h('button', { class: 'a-hoved', type: 'button', text: 'Opprett siden', on: { click: function () { nyKirke(D.navn, D.sted); } } }));
+      h('button', { class: 'a-hoved', type: 'button', text: 'Opprett siden', on: { click: function () { nyKirke(D.navn, D.sted); } } }),
+      h('p', { class: 'a-dempet', text: D.panel && D.panel.ui && D.panel.ui.src ? 'Skjermbildet av styringspanelet er lastet opp og følger med når siden opprettes.' : 'Skjermbildet av styringspanelet er ikke lastet opp ennå.' }), panelLenkeBoks());
     return;
   }
   if (D.skjult) m.append(h('div', { class: 'a-hint a-flex' }, h('span', { style: 'flex:1 1 220px', text: 'Denne kirken er skjult. Den vises ikke på forsiden, og bare du ser den via «Se siden».' }),
@@ -348,7 +359,7 @@ function fanePanel(m) {
     return;
   }
   var p = D.panel; p.merker = p.merker || []; p.ui = p.ui || { src: '', tekst: '' };
-  m.append(bildeplass(p.ui, 'panel-skjerm', 'Skjermbildet på panelet'));
+  m.append(bildeplass(p.ui, 'panel-skjerm', 'Skjermbildet på panelet'), panelLenkeBoks());
   if (p.ui.src) {
     var img = h('img', { src: vis(p.ui.src), alt: '' }), skjerm = h('div', { class: 'a-skjerm' }, img);
     p.merker.forEach(function (x) { skjerm.append(h('span', { class: 'a-merke' + (valgtMerke === x ? ' valgt' : ''), style: 'left:' + x.x + '%;top:' + x.y + '%', text: x.b })); });
@@ -457,7 +468,7 @@ function faneLenke(m) {
 function lagre(hva) {
   $('lagre').disabled = true; status('Lagrer …');
   return api('lagre', { slug: slug, data: D, sha: sha, hva: hva || 'innhold oppdatert' }).then(function (r) {
-    sha = r.sha; lenke = r.lenke; skitten = false; $('apne').href = r.side;
+    sha = r.sha; lenke = r.lenke; panelLenke = r.panelLenke; skitten = false; $('apne').href = r.side;
     var valg = $('velg').selectedOptions[0]; if (valg) valg.textContent = D.navn + (D.skjult ? ' (skjult)' : '');
     status('Lagret ' + new Date().toLocaleTimeString('nb-NO', { hour: '2-digit', minute: '2-digit' }) + '. Siden er oppdatert om omtrent ett minutt.');
   }).catch(function (f) { status(f.message); throw f; }).finally(function () { $('lagre').disabled = false; });
@@ -466,7 +477,7 @@ function apneKirke(s) {
   if (skitten && !confirm('Du har endringer som ikke er lagret. Forkaste dem?')) { $('velg').value = slug; return; }
   status('Henter …');
   return api('hent', { slug: s }).then(function (r) {
-    slug = s; D = r.data; sha = r.sha; lenke = r.lenke; skitten = false; valgtPunkt = valgtMerke = null;
+    slug = s; D = r.data; sha = r.sha; lenke = r.lenke; panelLenke = r.panelLenke; skitten = false; valgtPunkt = valgtMerke = null;
     $('velg').value = s; $('apne').href = r.side; $('apne').hidden = !!D.kommer; $('lagre').hidden = !!D.kommer;
     try { localStorage.setItem('kirke', s); } catch (e) {}
     status(''); tegn();
