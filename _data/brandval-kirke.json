@@ -244,21 +244,13 @@
         "id": "panel",
         "kat": "lyd",
         "navn": "Styringspanel",
-        "tekst": "I koret, nederst på høyre side. Her slår du lyden av og på.",
-        "bilde": {
-          "src": "",
-          "tekst": "Styringspanelet i koret"
-        }
+        "tekst": "I koret, nederst på høyre side. Her slår du lyden av og på."
       },
       {
         "id": "skap",
         "kat": "lyd",
         "navn": "Teknisk skap",
         "tekst": "I koret, på høyre side. Her står lydprosessoren, forsterkeren til høyttalerne, teleslyngeforsterkeren og mottakerne for de trådløse mikrofonene.",
-        "bilde": {
-          "src": "",
-          "tekst": "Det tekniske skapet i koret"
-        },
         "x": 63.4,
         "y": 43
       },
@@ -267,10 +259,6 @@
         "kat": "lyd",
         "navn": "Lesepult med mikrofon",
         "tekst": "I koret, på høyre side. Mikrofonen er fast montert og alltid klar.",
-        "bilde": {
-          "src": "",
-          "tekst": "Lesepulten"
-        },
         "x": 55.8,
         "y": 43
       },
@@ -279,10 +267,6 @@
         "kat": "lyd",
         "navn": "Galleri med orgel",
         "tekst": "Orgelet står på galleriet over inngangen. Solistmikrofonen ligger hos organisten.",
-        "bilde": {
-          "src": "",
-          "tekst": "Galleriet og orgelet"
-        },
         "x": 17.5,
         "y": 108
       },
@@ -290,21 +274,13 @@
         "id": "brytere",
         "kat": "lys",
         "navn": "Lysbrytere",
-        "tekst": "",
-        "bilde": {
-          "src": "",
-          "tekst": "Lysbryterne"
-        }
+        "tekst": ""
       },
       {
         "id": "inngang",
         "kat": "praktisk",
         "navn": "Hovedinngang",
         "tekst": "Også nødutgang.",
-        "bilde": {
-          "src": "",
-          "tekst": "Hovedinngangen utenfra"
-        },
         "x": 52.5,
         "y": 113.5
       },
@@ -312,31 +288,19 @@
         "id": "toalett",
         "kat": "praktisk",
         "navn": "Toalett",
-        "tekst": "",
-        "bilde": {
-          "src": "",
-          "tekst": "Toalettet"
-        }
+        "tekst": ""
       },
       {
         "id": "strom",
         "kat": "praktisk",
         "navn": "Stikkontakter for utstyr",
-        "tekst": "",
-        "bilde": {
-          "src": "",
-          "tekst": "Stikkontakter"
-        }
+        "tekst": ""
       },
       {
         "id": "nodutgang",
         "kat": "praktisk",
         "navn": "Andre nødutganger",
         "tekst": "",
-        "bilde": {
-          "src": "",
-          "tekst": "Nødutgang"
-        },
         "x": 13.5,
         "y": 60
       }

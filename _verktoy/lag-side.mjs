@@ -90,7 +90,6 @@ export function lagSide(k, pr = {}) {
           <div class="sted" id="sted-${e(x.id)}" data-kat="${x.kat}">
             <span class="prikk kat-${x.kat}">${x.n}</span>
             <div><b>${e(x.navn)}</b><p>${x.tekst ? e(x.tekst) : tom()}</p>${x.x == null && !pub ? '<p class="ikkeplassert">Ikke plassert på tegningen ennå</p>' : ''}</div>
-            ${bilde(x.bilde, 'liten')}
           </div>`).join('')}
         </div>
       </div>

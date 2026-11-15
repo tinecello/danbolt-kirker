@@ -231,10 +231,6 @@ function alleBilder() {
     if (!st.bilde) st.bilde = { src: '', tekst: '' };
     legg('Kom i gang: ' + o.tittel, st.bilde, (o.id || 'oppgave') + '-steg', 'Steg ' + (j + 1));
   }); });
-  ((D.plan || {}).punkter || []).forEach(function (p, i) {
-    if (!p.bilde) p.bilde = { src: '', tekst: p.navn };
-    legg('Finn fram', p.bilde, 'sted-' + p.id, (i + 1) + '. ' + p.navn);
-  });
   if (D.panel) { legg('Panelet', D.panel.ui, 'panel-skjerm', 'Skjermbildet på panelet'); legg('Panelet', D.panel.bilde, 'panel-foto', 'Foto av panelet'); }
   if (D.lys) legg('Lys', D.lys.bilde, 'lys', 'Lysbryterne');
   if (D.teknisk) legg('Teknisk', D.teknisk.bilde, 'teknisk', 'Teknisk utstyr');
@@ -347,10 +343,8 @@ function fanePlan(m) {
         h('span', { class: 'a-dempet', text: p.x == null ? 'Ikke plassert' : '' }),
         h('button', { type: 'button', class: valgt ? 'a-hoved' : '', text: valgt ? 'Ferdig' : (p.x == null ? 'Plasser' : 'Flytt / endre'), on: { click: function () { valgtPunkt = valgt ? null : p; tegn(); if (!valgt) document.querySelector('.a-tegning').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } } })));
     if (valgt) {
-      if (!p.bilde) p.bilde = { src: '', tekst: p.navn };
       kort.append(h('div', { class: 'a-rad' }, felt(p, 'navn', 'Navn'), h('label', {}, 'Kategori', kat)),
         felt(p, 'tekst', 'Forklaring', { lang: true, hint: 'Hvor det er, og hva det brukes til' }),
-        bildeplass(p.bilde, 'sted-' + p.id, 'Bilde av stedet'),
         h('div', { class: 'a-flex' },
           p.x != null ? h('button', { type: 'button', class: 'a-liten', text: 'Fjern fra tegningen', on: { click: function () { delete p.x; delete p.y; merk(); tegn(); } } }) : null,
           h('button', { type: 'button', class: 'a-liten', disabled: i === 0, text: '↑ Flytt opp', on: { click: function () { pl.punkter.splice(i - 1, 0, pl.punkter.splice(i, 1)[0]); merk(); tegn(); } } }),
@@ -359,7 +353,7 @@ function fanePlan(m) {
     m.append(kort);
   });
   m.append(h('button', { type: 'button', text: '+ Nytt punkt', on: { click: function () {
-    var p = { id: 'p' + Date.now().toString(36), kat: 'lyd', navn: 'Nytt punkt', tekst: '', bilde: { src: '', tekst: '' } };
+    var p = { id: 'p' + Date.now().toString(36), kat: 'lyd', navn: 'Nytt punkt', tekst: '' };
     pl.punkter.push(p); valgtPunkt = p; merk(); tegn();
   } } }));
 }

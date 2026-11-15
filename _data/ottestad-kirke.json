@@ -208,81 +208,49 @@
         "id": "panel",
         "kat": "lyd",
         "navn": "Styringspanel",
-        "tekst": "",
-        "bilde": {
-          "src": "",
-          "tekst": "Styringspanel"
-        }
+        "tekst": ""
       },
       {
         "id": "skap",
         "kat": "lyd",
         "navn": "Teknisk skap",
-        "tekst": "",
-        "bilde": {
-          "src": "",
-          "tekst": "Teknisk skap"
-        }
+        "tekst": ""
       },
       {
         "id": "lesepult",
         "kat": "lyd",
         "navn": "Lesepult med mikrofon",
-        "tekst": "",
-        "bilde": {
-          "src": "",
-          "tekst": "Lesepult med mikrofon"
-        }
+        "tekst": ""
       },
       {
         "id": "brytere",
         "kat": "lys",
         "navn": "Lysbrytere",
-        "tekst": "",
-        "bilde": {
-          "src": "",
-          "tekst": "Lysbrytere"
-        }
+        "tekst": ""
       },
       {
         "id": "inngang",
         "kat": "praktisk",
         "navn": "Hovedinngang",
-        "tekst": "",
-        "bilde": {
-          "src": "",
-          "tekst": "Hovedinngang"
-        }
+        "tekst": ""
       },
       {
         "id": "toalett",
         "kat": "praktisk",
         "navn": "Toalett",
-        "tekst": "",
-        "bilde": {
-          "src": "",
-          "tekst": "Toalett"
-        }
+        "tekst": ""
       },
       {
         "id": "strom",
         "kat": "praktisk",
         "navn": "Stikkontakter for utstyr",
-        "tekst": "",
-        "bilde": {
-          "src": "",
-          "tekst": "Stikkontakter for utstyr"
-        }
+        "tekst": ""
       },
       {
         "id": "nodutgang",
         "kat": "praktisk",
         "navn": "Nødutganger",
-        "tekst": "",
-        "bilde": {
-          "src": "",
-          "tekst": "Nødutganger"
-        }
+        "tekst": ""
       }
     ]
   },

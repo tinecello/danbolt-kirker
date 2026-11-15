@@ -80,7 +80,7 @@ nav a:hover{color:#a8432a;border-color:#a8432a}
 .kat-lyd{background:#a8432a;fill:#a8432a}.kat-lys{background:#8f6512;fill:#8f6512}.kat-praktisk{background:#3f6b5a;fill:#3f6b5a}
 .kart[data-filter=lyd] [data-kat]:not([data-kat=lyd]),.kart[data-filter=lys] [data-kat]:not([data-kat=lys]),.kart[data-filter=praktisk] [data-kat]:not([data-kat=praktisk]){display:none}
 .steder{display:flex;flex-direction:column;gap:6px}
-.sted{display:grid;grid-template-columns:32px minmax(0,1fr) 120px;gap:14px;align-items:start;padding:12px;border-radius:10px}
+.sted{display:grid;grid-template-columns:32px minmax(0,1fr);gap:14px;align-items:start;padding:12px;border-radius:10px}
 .sted:target{background:#ebe5d9}
 .sted b{font-size:17px}
 .sted p{font-size:15px;color:#4a453c}
