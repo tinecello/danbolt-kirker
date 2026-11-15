@@ -2,5 +2,11 @@
   "slug": "ottestad-kirke",
   "navn": "Ottestad kirke",
   "sted": "Stange",
-  "kommer": true
+  "kommer": true,
+  "panel": {
+    "ui": {
+      "src": "/bilder/ottestad-kirke/panel-skjerm.jpg",
+      "tekst": "Skjermbildet på styringspanelet i Ottestad kirke"
+    }
+  }
 }
