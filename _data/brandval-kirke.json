@@ -50,7 +50,8 @@
           "tips": "Nå går lyden fra mikseren ut i kirkens høyttalere. Alle ekstra mikrofoner og instrumenter kobles til mikseren.",
           "bilde": {
             "src": "",
-            "tekst": "Feideren «Ekstern mikser» på skjermen"
+            "tekst": "Feideren «Ekstern mikser» på skjermen",
+            "skjul": true
           }
         },
         {
@@ -77,14 +78,16 @@
           "tekst": "Hold «ALL LYD AV/PÅ» inne i 2 sekunder på styringspanelet i koret.",
           "bilde": {
             "src": "",
-            "tekst": "Skjermen med «ALL LYD AV/PÅ»-knappen"
+            "tekst": "Skjermen med «ALL LYD AV/PÅ»-knappen",
+            "skjul": true
           }
         },
         {
           "tekst": "Solisten bruker den trådløse solistmikrofonen. Den ligger hos organisten.",
           "bilde": {
             "src": "",
-            "tekst": "Solistmikrofonen ved orgelet"
+            "tekst": "Solistmikrofonen ved orgelet",
+            "skjul": true
           }
         },
         {
@@ -92,7 +95,8 @@
           "tips": "Se «Konsert med egen lydtekniker».",
           "bilde": {
             "src": "",
-            "tekst": "Kor med mikrofoner"
+            "tekst": "Kor med mikrofoner",
+            "skjul": true
           }
         },
         {
@@ -125,7 +129,8 @@
     },
     "bilde": {
       "src": "",
-      "tekst": "Foto av styringspanelet i koret"
+      "tekst": "Foto av styringspanelet i koret",
+      "skjul": true
     },
     "programmer": [],
     "skyvere": [
@@ -439,7 +444,8 @@
     ],
     "bilde": {
       "src": "",
-      "tekst": "Skapet innvendig med DSP, forsterker og trådløse mottakere"
+      "tekst": "Skapet innvendig med DSP, forsterker og trådløse mottakere",
+      "skjul": true
     }
   },
   "galleri": [
